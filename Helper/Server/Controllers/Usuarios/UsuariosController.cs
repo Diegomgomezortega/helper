@@ -1,6 +1,7 @@
 ﻿using Helper.Shared.Data;
 using Helper.Shared.Data.Entidades;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,18 @@ namespace Helper.Server.Controllers.Usuarios
         {
             return context.Usuarios.ToList();
         }
+
+        [HttpGet("{usuarioId:int}")]
+        public async Task<ActionResult<Anuncio>> Get(int usuarioId)
+        {
+            var anuncio = await context.Anuncios.Where(x => x.UsuarioId == usuarioId).FirstOrDefaultAsync();
+            if (anuncio == null)
+            {
+                return NotFound($"No existe anuncios del usuario ");
+            }
+            return anuncio;
+        }
+
         [HttpPost]
         public ActionResult<Usuario> Post(Usuario usuario)
         {

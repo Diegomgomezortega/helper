@@ -15,7 +15,8 @@ namespace Helper.Shared.Data.Entidades
         
         [Required(ErrorMessage ="Campo Obligatorio")]
         public int Tipo { get; set; }
-
+        [Required(ErrorMessage = "Campo Obligatorio")]
+        public string Nombre { get; set; }
         public string Tamano { get; set; }
         [Required(ErrorMessage = "Campo Obligatorio")]
         public string ColorRGB1 { get; set; }
