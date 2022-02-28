@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper.Server", "Server\Helper.Server.csproj", "{4439B682-B8F5-4C99-83A0-6F308EAAB0F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helper.Server", "Server\Helper.Server.csproj", "{4439B682-B8F5-4C99-83A0-6F308EAAB0F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper.Client", "Client\Helper.Client.csproj", "{BA390184-130D-451C-B5AC-B1E34DDC7AC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helper.Client", "Client\Helper.Client.csproj", "{BA390184-130D-451C-B5AC-B1E34DDC7AC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper.Shared", "Shared\Helper.Shared.csproj", "{581C8AA3-2004-4308-8552-A9CF3080BBBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helper.Shared", "Shared\Helper.Shared.csproj", "{581C8AA3-2004-4308-8552-A9CF3080BBBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

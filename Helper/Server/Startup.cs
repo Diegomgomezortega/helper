@@ -33,6 +33,7 @@ namespace Helper.Server
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Helper", Version = "v1" });
             });
+            #region Codigo para evitar el borrado en Cascada
             //Para evitar ciclos en los pedidos:
             //.NET3.1
             //Instala la librería: Microsoft.AspNetCore.Mvc.NewtonsoftJson
@@ -45,6 +46,7 @@ namespace Helper.Server
             //.NET6
             //services.AddControllersWithViews().AddJsonOptions(x => 
             //    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
+            #endregion
 
             services.AddControllersWithViews();//.AddJsonOptions(x =>
             //    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);;

@@ -1,3 +1,4 @@
+/* /Shared/ContenedorAnuncios.razor.rz.scp.css */
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-uz9et486yt] {
     position: relative;
@@ -70,40 +71,40 @@
     }
 }
 /* /Shared/NavMenu.razor.rz.scp.css */
-.navbar-toggler[b-wtp8v772pj] {
+/*.navbar-toggler {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.top-row[b-wtp8v772pj] {
+.top-row {
     height: 3.5rem;
     background-color: rgba(0,0,0,0.4);
 }
 
-.navbar-brand[b-wtp8v772pj] {
+.navbar-brand {
     font-size: 1.1rem;
 }
 
-.oi[b-wtp8v772pj] {
+.oi {
     width: 2rem;
     font-size: 1.1rem;
     vertical-align: text-top;
     top: -2px;
 }
 
-.nav-item[b-wtp8v772pj] {
+.nav-item {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
 }
 
-    .nav-item:first-of-type[b-wtp8v772pj] {
+    .nav-item:first-of-type {
         padding-top: 1rem;
     }
 
-    .nav-item:last-of-type[b-wtp8v772pj] {
+    .nav-item:last-of-type {
         padding-bottom: 1rem;
     }
 
-    .nav-item[b-wtp8v772pj]  a {
+    .nav-item ::deep a {
         color: #d7d7d7;
         border-radius: 4px;
         height: 3rem;
@@ -112,23 +113,24 @@
         line-height: 3rem;
     }
 
-.nav-item[b-wtp8v772pj]  a.active {
+.nav-item ::deep a.active {
     background-color: rgba(255,255,255,0.25);
     color: white;
 }
 
-.nav-item[b-wtp8v772pj]  a:hover {
+.nav-item ::deep a:hover {
     background-color: rgba(255,255,255,0.1);
     color: white;
 }
 
 @media (min-width: 641px) {
-    .navbar-toggler[b-wtp8v772pj] {
+    .navbar-toggler {
         display: none;
     }
 
-    .collapse[b-wtp8v772pj] {
-        /* Never collapse the sidebar for wide screens */
+    .collapse {
+         Never collapse the sidebar for wide screens 
         display: block;
     }
 }
+*/

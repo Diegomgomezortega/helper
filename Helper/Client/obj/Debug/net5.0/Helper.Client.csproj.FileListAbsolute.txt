@@ -700,3 +700,10 @@ D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\bu
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\build-gz\caK695FJ.gz
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\build-gz\iwiC0gJg.gz
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\build-gz\6m5ny3x3.gz
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Perdidos.razor.g.cs
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\Razor\Pages\Perdidos.razor.g.cs
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\RazorDeclaration\Shared\ContenedorAnuncios.razor.g.cs
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\Razor\Shared\ContenedorAnuncios.razor.g.cs
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\RazorDeclaration\Shared\Anuncio.razor.g.cs
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\Razor\Shared\Anuncio.razor.g.cs
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\scopedcss\Shared\ContenedorAnuncios.razor.rz.scp.css
