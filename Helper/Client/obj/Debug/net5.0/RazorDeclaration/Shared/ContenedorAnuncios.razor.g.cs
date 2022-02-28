@@ -82,6 +82,14 @@ using Helper.Client.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Servicios;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/anuncios")]
     public partial class ContenedorAnuncios : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -89,6 +97,38 @@ using Helper.Client.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 66 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\ContenedorAnuncios.razor"
+       
+
+    string TipoAnuncio;
+
+    List<Helper.Shared.Data.Entidades.Anuncio> anuncios=new List<Helper.Shared.Data.Entidades.Anuncio>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        await TraerAnuncios();
+    }
+    private async Task TraerAnuncios()
+    {
+        var respuestaHttp = await http.Get<List<Helper.Shared.Data.Entidades.Anuncio>>("api/publicaciones");
+        if (!respuestaHttp.Error)
+        {
+            anuncios = respuestaHttp.Respuesta;
+
+        }
+
+
+
+    }
+
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpService http { get; set; }
     }
 }
 #pragma warning restore 1591

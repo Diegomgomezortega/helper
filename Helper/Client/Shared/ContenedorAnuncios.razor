@@ -1,25 +1,91 @@
-﻿<div class="container">
-    <div class="card" style="width: 18rem;">
-        <div class="card-header">
-            <p class="text-center">Buscado</p>
-        </div>
-        <img src="/image/mascota3.jpg" class="card-img-top" alt="anuncio1">
-        <div class="card-body">
-            <h3 class="text-center">Micha</h3>
-            <p class="text-center">Some quick example text to build on the card title and make up the bulk of the card's content</p>
+﻿@page "/anuncios"
+@inject IHttpService http
+<div class="container-fluid">
+    <h2 class="text-center">Todos los anuncios</h2>
+    <div class="row">
 
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Mediano</li>
-            <li class="list-group-item">Fecha: 20/02/2022</li>
-            <li class="list-group-item">Color: Negro - Blanco</li>
-        </ul>
-        <div class="card-body">
-            <button type="button" class="btn btn-primary btn-sm btn-block">Lo ví</button>
-            <button type="button" class="btn btn-success btn-sm btn-block">Lo tengo conmigo</button>
-        </div>
+        @if (anuncios == null)
+        {
+            <h3>Cargando.....</h3>
+        }
+        
+        else
+        {
+            @foreach (var item in anuncios)
+            {
+                switch (item.Tipo)
+                {
+                    case 1:
+                        TipoAnuncio = "Buscado";
+                        break;
+                    case 2:
+                        TipoAnuncio = "En Adpción";
+                        break;
+                    case 3:
+                        TipoAnuncio = "Encontrado";
+                        break;
+                    default:
+                        TipoAnuncio = "Buscado";
+                        break;
+                }
+                <div class="col-sm-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            <h2 class="text-center">@TipoAnuncio</h2>
+                        </div>
+                        <img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">
+                        <div class="card-body">
+                            <h3 class="text-center">Micha</h3>
+                            <p class="text-center">Some quick example text to build on the card title and make up the bulk of the card's content</p>
+
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">@item.Tamano</li>
+                            <li class="list-group-item">Fecha:@item.FechaSuceso.ToShortDateString()</li>
+                            <li class="list-group-item">Color: @item.ColorRGB1 - @item.ColorRGB2</li>
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary btn-sm btn-block">Lo ví</button>
+                            <button type="button" class="btn btn-success btn-sm btn-block">Lo tengo conmigo</button>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                </div>
+
+            }
+
+    }
+
+
+
+
     </div>
 </div>
+
 @code {
+
+    string TipoAnuncio;
+
+    List<Helper.Shared.Data.Entidades.Anuncio> anuncios=new List<Helper.Shared.Data.Entidades.Anuncio>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        await TraerAnuncios();
+    }
+    private async Task TraerAnuncios()
+    {
+        var respuestaHttp = await http.Get<List<Helper.Shared.Data.Entidades.Anuncio>>("api/publicaciones");
+        if (!respuestaHttp.Error)
+        {
+            anuncios = respuestaHttp.Respuesta;
+
+        }
+
+
+
+    }
+
 
 }

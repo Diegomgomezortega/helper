@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Helper.Server.Controllers.Anuncios
 {
     [ApiController]
-    [Route("api/anuncios")] //Ruta por la cual el server va a buscar a nuestro controlador y buscar lo que necesita
+    [Route("api/publicaciones")] //Ruta por la cual el server va a buscar a nuestro controlador y buscar lo que necesita
     public class AnunciosController: ControllerBase
     {
         private readonly dbContext context;
