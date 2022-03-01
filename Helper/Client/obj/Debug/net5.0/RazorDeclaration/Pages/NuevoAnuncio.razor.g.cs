@@ -89,14 +89,53 @@ using Helper.Client.Servicios;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/historias")]
-    public partial class Historias : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 12 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Pages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Shared.Data.Entidades;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/anuncios/nuevo")]
+    public partial class NuevoAnuncio : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 10 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
+       
+
+   
+    private Anuncio anuncio = new Anuncio();
+    //private Anuncio NuevoAnuncio = new();
+    private async Task GrabarNuevo()
+    {
+
+    }
+    private async Task Cancelar()
+    {
+
+    }
+    private void CargarFecha()
+    {
+        //hoy = DateTime.Now.ToShortDateString();
+
+    }
+
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

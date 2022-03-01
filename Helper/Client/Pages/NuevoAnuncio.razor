@@ -1,0 +1,29 @@
+﻿@page "/anuncios/nuevo"
+
+
+
+<h3 class="text-center">Nuevo Anuncio</h3>
+<FormAnuncio onValidSubmit="GrabarNuevo" nuevo="anuncio" onCancel="Cancelar" >
+
+</FormAnuncio>
+
+@code {
+
+   
+    private Anuncio anuncio = new Anuncio();
+    //private Anuncio NuevoAnuncio = new();
+    private async Task GrabarNuevo()
+    {
+
+    }
+    private async Task Cancelar()
+    {
+
+    }
+    private void CargarFecha()
+    {
+        //hoy = DateTime.Now.ToShortDateString();
+
+    }
+
+}

@@ -704,10 +704,10 @@ D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\Ra
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\Razor\Pages\Perdidos.razor.g.cs
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\RazorDeclaration\Shared\ContenedorAnuncios.razor.g.cs
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\Razor\Shared\ContenedorAnuncios.razor.g.cs
-D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\RazorDeclaration\Shared\Anuncio.razor.g.cs
-D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\Razor\Shared\Anuncio.razor.g.cs
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\scopedcss\Shared\ContenedorAnuncios.razor.rz.scp.css
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Adopciones.razor.g.cs
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\Razor\Pages\Adopciones.razor.g.cs
-D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Historias.razor.g.cs
-D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\Razor\Pages\Historias.razor.g.cs
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\RazorDeclaration\Shared\FormAnuncio.razor.g.cs
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\Razor\Shared\FormAnuncio.razor.g.cs
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\RazorDeclaration\Pages\NuevoAnuncio.razor.g.cs
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\Razor\Pages\NuevoAnuncio.razor.g.cs

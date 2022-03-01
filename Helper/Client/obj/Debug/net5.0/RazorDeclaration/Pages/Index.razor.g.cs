@@ -89,6 +89,20 @@ using Helper.Client.Servicios;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Pages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Shared.Data.Entidades;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {

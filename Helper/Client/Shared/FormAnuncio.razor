@@ -1,0 +1,48 @@
+﻿<EditForm Model="nuevo" OnValidSubmit="onValidSubmit" >
+    <DataAnnotationsValidator />
+    <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+
+            <img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">
+            <div class="card-body">
+                <InputText class="form-control" placeholder="Nombre" @bind-Value="@nuevo.Nombre" />
+                <ValidationMessage For="@(() => nuevo.Nombre)" />
+                <textarea class="form-control" placeholder="Describe a tu mascota según las características que lo hacen especial" rows="3"></textarea>
+
+
+            </div>
+            <ul class="list-group list-group-flush">
+
+                <InputText class="form-control" placeholder="Tamaño" @bind-Value="@nuevo.Tamano" />
+                <ValidationMessage For="@(() => nuevo.Tamano)" />
+
+
+                <InputDate class="form-control" placeholder="Fecha" @bind-Value="@nuevo.FechaSuceso" />
+                <ValidationMessage For="@(() => nuevo.FechaSuceso)" />
+
+
+                <InputText class="form-control" placeholder="Color Dominate" @bind-Value="@nuevo.ColorRGB1" />
+                <ValidationMessage For="@(() => nuevo.ColorRGB1)" />
+                <InputText class="form-control" placeholder="Color Secundario (no es obligatorio)" @bind-Value="@nuevo.ColorRGB2" />
+                <ValidationMessage For="@(() => nuevo.ColorRGB2)" />
+
+            </ul>
+            <div class="card-body">
+                <button class="btn btn-primary btn-sm btn-block" type="submit">Guardar</button>
+                <button type="button" class="btn btn-success btn-sm btn-block" @onclick="onCancel">Cancelar</button>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+</EditForm>
+
+
+@code {
+    [Parameter] public Anuncio nuevo { get; set; }
+    [Parameter] public EventCallback onValidSubmit { get; set; }
+    [Parameter] public EventCallback onCancel { get; set; }
+   
+
+
+}

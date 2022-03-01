@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -32,6 +33,24 @@ namespace Helper.Client.Servicios
             {
                 return new HttpRespuesta<T>(default, true, respuestaHttp);
             }
+
+        }
+
+        public async Task<HttpRespuesta<object>> Post<T>(string url,T enviar)
+        {
+            try
+            {
+                var enviarJson = JsonSerializer.Serialize(enviar);
+                var enviarContent = new StringContent(enviarJson, Encoding.UTF8, "aplication/json");
+                var respuestaHttp = await http.PostAsync(url, enviarContent);
+                return new HttpRespuesta<object>(null, !respuestaHttp.IsSuccessStatusCode, respuestaHttp);
+
+            }
+            catch (System.Exception e)
+            {
+                throw;
+            }
+            
 
         }
         private async Task<T> DeserializarRespuesta<T>(HttpResponseMessage httpRespuesta)
