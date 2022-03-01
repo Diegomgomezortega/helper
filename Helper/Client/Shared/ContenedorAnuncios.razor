@@ -6,56 +6,67 @@
 
         @if (anuncios == null)
         {
-            <h3>Cargando.....</h3>
+        <h3 class="text-center">No hay anuncios disponibles. Realiza el tuyo!</h3>
         }
-        
         else
         {
-            @foreach (var item in anuncios)
+            if (anuncios.Count == 0)
             {
-                switch (item.Tipo)
+                
+                <h3>Cargando.....</h3>
+            }
+            else
+            {
+                @foreach (var item in anuncios)
                 {
-                    case 1:
-                        TipoAnuncio = "Buscado";
-                        break;
-                    case 2:
-                        TipoAnuncio = "En Adpción";
-                        break;
-                    case 3:
-                        TipoAnuncio = "Encontrado";
-                        break;
-                    default:
-                        TipoAnuncio = "Buscado";
-                        break;
-                }
-                <div class="col-sm-4">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-header">
-                            <h2 class="text-center">@TipoAnuncio</h2>
-                        </div>
-                        <img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">
-                        <div class="card-body">
-                            <h3 class="text-center">Micha</h3>
-                            <p class="text-center">Some quick example text to build on the card title and make up the bulk of the card's content</p>
+                    switch (item.Tipo)
+                    {
+                        case 1:
+                            TipoAnuncio = "Buscado";
+                            break;
+                        case 2:
+                            TipoAnuncio = "En Adpción";
+                            break;
+                        case 3:
+                            TipoAnuncio = "Encontrado";
+                            break;
+                        default:
+                            TipoAnuncio = "Buscado";
+                            break;
+                    }
+                    <div class="col-sm-4">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                                <h2 class="text-center">@TipoAnuncio</h2>
+                            </div>
+                            <img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">
+                            <div class="card-body">
+                                <h3 class="text-center">@item.Nombre</h3>
+                                <p class="text-center">Some quick example text to build on the card title and make up the bulk of the card's content</p>
 
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">@item.Tamano</li>
+                                <li class="list-group-item">Fecha:@item.FechaSuceso.ToShortDateString()</li>
+                                <li class="list-group-item">Color: @item.ColorRGB1 - @item.ColorRGB2</li>
+                            </ul>
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary btn-sm btn-block">Lo ví</button>
+                                <button type="button" class="btn btn-success btn-sm btn-block">Lo tengo conmigo</button>
+                            </div>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">@item.Tamano</li>
-                            <li class="list-group-item">Fecha:@item.FechaSuceso.ToShortDateString()</li>
-                            <li class="list-group-item">Color: @item.ColorRGB1 - @item.ColorRGB2</li>
-                        </ul>
-                        <div class="card-body">
-                            <button type="button" class="btn btn-primary btn-sm btn-block">Lo ví</button>
-                            <button type="button" class="btn btn-success btn-sm btn-block">Lo tengo conmigo</button>
-                        </div>
+                        <br />
+                        <br />
                     </div>
-                    <br />
-                    <br />
-                </div>
+
+                }
+
 
             }
 
-    }
+
+
+        }
 
 
 

@@ -73,7 +73,7 @@ namespace Helper.Server.Controllers.Anuncios
             anuncioAmod.Especie = anuncio.Especie;
             anuncioAmod.FechaAnuncio = anuncio.FechaAnuncio;
             anuncioAmod.FechaSuceso = anuncio.FechaSuceso;
-            anuncioAmod.FotoRuta = anuncio.FotoRuta;
+            anuncioAmod.RutaFoto = anuncio.RutaFoto;
             anuncioAmod.Tamano = anuncio.Tamano;
             anuncioAmod.Tipo = anuncio.Tipo;
             anuncioAmod.UsuarioId = anuncio.UsuarioId;

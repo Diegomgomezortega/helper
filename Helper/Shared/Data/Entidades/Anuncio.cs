@@ -14,7 +14,7 @@ namespace Helper.Shared.Data.Entidades
         public int Id { get; set; }
         
         [Required(ErrorMessage ="Campo Obligatorio")]
-        public int Tipo { get; set; }
+        public int Tipo { get; set; } //1: Perdido, 2:EN adopcion, 3: Encontrado
         [Required(ErrorMessage = "Campo Obligatorio")]
         public string Nombre { get; set; }
         public string Tamano { get; set; }
@@ -25,7 +25,8 @@ namespace Helper.Shared.Data.Entidades
         [Required(ErrorMessage = "Campo Obligatorio")]
         public DateTime FechaSuceso { get; set; }
         public DateTime FechaAnuncio { get; set; }
-        public string FotoRuta { get; set; }
+        public string RutaFoto { get; set; }
+        public byte[] Foto { get; set; }
         public int UsuarioId { get; set; }
         //public Usuario Usuario { get; set; }
     }
