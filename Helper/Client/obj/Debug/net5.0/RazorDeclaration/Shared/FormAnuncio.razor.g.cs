@@ -111,12 +111,18 @@ using Helper.Shared.Data.Entidades;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 44 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\FormAnuncio.razor"
+#line 72 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\FormAnuncio.razor"
        
     [Parameter] public Anuncio nuevo { get; set; }
     [Parameter] public EventCallback onValidSubmit { get; set; }
     [Parameter] public EventCallback onCancel { get; set; }
-   
+    [Parameter] public EventCallback onChange { get; set; }
+    [Parameter] public string textobtn1 { get; set; }
+    [Parameter] public string textobtn2 { get; set; }
+    
+
+
+
 
 
 

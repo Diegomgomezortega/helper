@@ -1,23 +1,39 @@
 ﻿@page "/anuncios/nuevo"
+@inject NavigationManager navigationManager
+@inject IHttpService http
 
 
 
-<h3 class="text-center">Nuevo Anuncio</h3>
-<FormAnuncio onValidSubmit="GrabarNuevo" nuevo="anuncio" onCancel="Cancelar" >
+
+<FormAnuncio onValidSubmit="GrabarNuevo" nuevo="anuncio" onCancel="Cancelar" textobtn1="Guardar Anuncio" textobtn2="Cancelar" onChange="SelectTamano">
 
 </FormAnuncio>
 
 @code {
+    public string txtbtn1 = "Guardar Anuncio";
+    public string txtbtn2 = "Cancelar";
+    public string Tamano;
 
-   
+
     private Anuncio anuncio = new Anuncio();
-    //private Anuncio NuevoAnuncio = new();
+
+
     private async Task GrabarNuevo()
     {
+        anuncio.FechaAnuncio = DateTime.Now;
+        anuncio.UsuarioId = 4;
+        
+        var httpRespuesta = await http.Post<Helper.Shared.Data.Entidades.Anuncio>("api/publicaciones", anuncio);
+        if (httpRespuesta.Error)
+        {
+            var body = await httpRespuesta.GetBody();//Sitenemos un error, se va a mostrar
+        }
+        navigationManager.NavigateTo("/anuncios");
 
     }
-    private async Task Cancelar()
+    private void Cancelar()
     {
+        navigationManager.NavigateTo("/anuncios");
 
     }
     private void CargarFecha()
@@ -25,5 +41,10 @@
         //hoy = DateTime.Now.ToShortDateString();
 
     }
+    private void SelectTamano()
+        { 
+        
+
+        }
 
 }

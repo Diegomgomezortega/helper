@@ -1,7 +1,7 @@
 ﻿@page "/anuncios"
 @inject IHttpService http
 <div class="container-fluid">
-    <h2 class="text-center">Todos los anuncios</h2>
+    
     <div class="row">
 
         @if (anuncios == null)
@@ -23,26 +23,30 @@
                     {
                         case 1:
                             TipoAnuncio = "Buscado";
+                            colorHeader= "#ff9494";
                             break;
                         case 2:
-                            TipoAnuncio = "En Adpción";
+                            TipoAnuncio = "En Adopción";
+                            colorHeader= "#b3ffC0";
                             break;
                         case 3:
                             TipoAnuncio = "Encontrado";
+                            colorHeader= "#c4cdff";
                             break;
                         default:
                             TipoAnuncio = "Buscado";
+                            colorHeader = "#ff9494";
                             break;
                     }
                     <div class="col-sm-4">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-header">
-                                <h2 class="text-center">@TipoAnuncio</h2>
+                        <div class="card text-center" style="width: 18rem; background-color: #FFEC84">
+                            <div class="card-header" style="background-color:@colorHeader">
+                                <h2 class="text-center" >@TipoAnuncio</h2>
                             </div>
                             <img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">
                             <div class="card-body">
                                 <h3 class="text-center">@item.Nombre</h3>
-                                <p class="text-center">Some quick example text to build on the card title and make up the bulk of the card's content</p>
+                                <p class="text-center">@item.Descripcion</p>
 
                             </div>
                             <ul class="list-group list-group-flush">
@@ -77,6 +81,7 @@
 @code {
 
     string TipoAnuncio;
+    string colorHeader;
 
     List<Helper.Shared.Data.Entidades.Anuncio> anuncios=new List<Helper.Shared.Data.Entidades.Anuncio>();
 

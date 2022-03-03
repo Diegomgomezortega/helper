@@ -41,7 +41,7 @@ namespace Helper.Client.Servicios
             try
             {
                 var enviarJson = JsonSerializer.Serialize(enviar);
-                var enviarContent = new StringContent(enviarJson, Encoding.UTF8, "aplication/json");
+                var enviarContent = new StringContent(enviarJson, Encoding.UTF8, "application/json");
                 var respuestaHttp = await http.PostAsync(url, enviarContent);
                 return new HttpRespuesta<object>(null, !respuestaHttp.IsSuccessStatusCode, respuestaHttp);
 

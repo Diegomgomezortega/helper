@@ -112,10 +112,11 @@ using Helper.Shared.Data.Entidades;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 77 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\ContenedorAnuncios.razor"
+#line 81 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\ContenedorAnuncios.razor"
        
 
     string TipoAnuncio;
+    string colorHeader;
 
     List<Helper.Shared.Data.Entidades.Anuncio> anuncios=new List<Helper.Shared.Data.Entidades.Anuncio>();
 

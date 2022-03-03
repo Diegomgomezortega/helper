@@ -112,18 +112,32 @@ using Helper.Shared.Data.Entidades;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
+#line 12 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
        
+    public string txtbtn1 = "Guardar Anuncio";
+    public string txtbtn2 = "Cancelar";
+    public string Tamano;
 
-   
+
     private Anuncio anuncio = new Anuncio();
-    //private Anuncio NuevoAnuncio = new();
+
+
     private async Task GrabarNuevo()
     {
+        anuncio.FechaAnuncio = DateTime.Now;
+        anuncio.UsuarioId = 4;
+        
+        var httpRespuesta = await http.Post<Helper.Shared.Data.Entidades.Anuncio>("api/publicaciones", anuncio);
+        if (httpRespuesta.Error)
+        {
+            var body = await httpRespuesta.GetBody();//Sitenemos un error, se va a mostrar
+        }
+        navigationManager.NavigateTo("/anuncios");
 
     }
-    private async Task Cancelar()
+    private void Cancelar()
     {
+        navigationManager.NavigateTo("/anuncios");
 
     }
     private void CargarFecha()
@@ -131,11 +145,18 @@ using Helper.Shared.Data.Entidades;
         //hoy = DateTime.Now.ToShortDateString();
 
     }
+    private void SelectTamano()
+        { 
+        
+
+        }
 
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpService http { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -2,36 +2,64 @@
     <DataAnnotationsValidator />
     <center>
         <div class="col-sm-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 28rem; background-color: #FFEC84">
+                <div class="card-header">
+                    <h2 class="text-center">Nuevo Anuncio</h2>
+                </div>
 
                 <img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">
-                <InputFile class="form-control" placeholder="Foto"/>
+
                 <div class="card-body">
+                    <InputFile class="form-control" placeholder="Foto" />
+                    <br />
+                    <InputText class="form-control" placeholder="Especie" @bind-Value="@nuevo.Especie" />
+                    <ValidationMessage For="@(() => nuevo.Especie)" />
+                    <br />
                     <InputText class="form-control" placeholder="Nombre" @bind-Value="@nuevo.Nombre" />
                     <ValidationMessage For="@(() => nuevo.Nombre)" />
-                    <textarea class="form-control" placeholder="Describe a tu mascota según las características que lo hacen especial" rows="3"></textarea>
+                </div>
+                <div class="card-body">
+
+                    <label> Estado del amiga/o:</label>
+                    <InputSelect @bind-Value="nuevo.Tipo">
+                        <option value="1">Perdido</option>
+                        <option value="2">En adopción</option>
+                        <option value="3">Encontrado</option>
+                    </InputSelect>
+                    <ValidationMessage For="@(() => nuevo.Tipo)" />
+
+                    <br />
+                    <br />
+                    <label> Descripción:</label>
+                    <InputTextArea class="form-control" placeholder="Describe a tu amiga/o según las características que lo hacen especial" rows="3" @bind-Value="nuevo.Descripcion"></InputTextArea>
+                    <ValidationMessage For="@(() => nuevo.Descripcion)" />
 
 
                 </div>
                 <ul class="list-group list-group-flush">
-
-                    <InputText class="form-control" placeholder="Tamaño" @bind-Value="@nuevo.Tamano" />
-                    <ValidationMessage For="@(() => nuevo.Tamano)" />
-
-
+                    <left>
+                        <label>Tamaño del amiga/o:</label>
+                        <InputSelect @bind-Value="nuevo.Tamano" class="form-select form-select-lg mb-3" @onchange="onChange" aria-label=".form-select-lg example">
+                            <option value="Pequeño">Chico (1 a 5kg)</option>
+                            <option value="Mediano">Mediano (6 a 10kg)</option>
+                            <option value="Grande">Grande (11 a 15kg)</option>
+                            <option value="Enorme">Enorme (16kg o +)</option>
+                        </InputSelect>
+                        
+                        <ValidationMessage For="@(() => nuevo.Tamano)" />
+                    </left>
                     <InputDate class="form-control" placeholder="Fecha" @bind-Value="@nuevo.FechaSuceso" />
                     <ValidationMessage For="@(() => nuevo.FechaSuceso)" />
-
-
-                    <InputText class="form-control" placeholder="Color Dominate" @bind-Value="@nuevo.ColorRGB1" />
+                    <br />
+                    <InputText class="form-control" placeholder="Color Dominante" @bind-Value="@nuevo.ColorRGB1" />
                     <ValidationMessage For="@(() => nuevo.ColorRGB1)" />
+                    <br />
                     <InputText class="form-control" placeholder="Color Secundario (no es obligatorio)" @bind-Value="@nuevo.ColorRGB2" />
                     <ValidationMessage For="@(() => nuevo.ColorRGB2)" />
-
                 </ul>
                 <div class="card-body">
-                    <button class="btn btn-primary btn-sm btn-block" type="submit">Guardar</button>
-                    <button type="button" class="btn btn-success btn-sm btn-block" @onclick="onCancel">Cancelar</button>
+                    <button class="btn btn-primary btn-sm btn-block" type="submit">@textobtn1</button>
+                    <button type="button" class="btn btn-success btn-sm btn-block" @onclick="onCancel">@textobtn2</button>
                 </div>
             </div>
             <br />
@@ -45,7 +73,13 @@
     [Parameter] public Anuncio nuevo { get; set; }
     [Parameter] public EventCallback onValidSubmit { get; set; }
     [Parameter] public EventCallback onCancel { get; set; }
-   
+    [Parameter] public EventCallback onChange { get; set; }
+    [Parameter] public string textobtn1 { get; set; }
+    [Parameter] public string textobtn2 { get; set; }
+    
+
+
+
 
 
 }
