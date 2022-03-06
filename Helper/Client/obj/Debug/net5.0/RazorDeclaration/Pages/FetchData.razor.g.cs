@@ -104,6 +104,13 @@ using Helper.Shared.Data.Entidades;
 #line hidden
 #nullable disable
 #nullable restore
+#line 14 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Helpers;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\FetchData.razor"
 using Helper.Shared;
 

@@ -10,6 +10,7 @@ using System.Linq;
 using Helper.Shared.Data;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
+using CurrieTechnologies.Razor.SweetAlert2;
 
 namespace Helper.Server
 {
@@ -28,6 +29,7 @@ namespace Helper.Server
         {
             services.AddDbContext<dbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("Conn")));
+           
 
             services.AddSwaggerGen(c =>
             {
@@ -51,6 +53,7 @@ namespace Helper.Server
             services.AddControllersWithViews();//.AddJsonOptions(x =>
             //    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);;
             services.AddRazorPages();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

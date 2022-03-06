@@ -7,6 +7,8 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
+      "CsvHelper.dll": "sha256-NsX0JTLefBulFJuOOQ7a5NES1\/0JroLi6pnAfNlYW04=",
+      "CurrieTechnologies.Razor.SweetAlert2.dll": "sha256-yft6s4MgccKPdws0+pnUwpcHXsb9zFHdBXn7bhPmp\/Q=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-MtirMvHgYcj4ndQd7pET\/O5NNYtgGBSZjagQtMoCqkM=",
       "Microsoft.AspNetCore.Components.dll": "sha256-GAaJclD+6g1DqVk0QYR\/AwnPRfqna8jIick0Qzgxgmk=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-ItzErl0dg6wjmJUfDfQ9ZhyauugC8Dy+oc2CA9DDkZ4=",
@@ -218,12 +220,12 @@
       "netstandard.dll": "sha256-bY3Q1RCB\/lmUAo5AG5YDHBu5uD8OxCGAiJ+wukrs1pw=",
       "System.Private.CoreLib.dll": "sha256-25IZl0xgoqOBdkTlEjUBLmiiRGYCYI1BaFevKzE+EHk=",
       "Helper.Shared.dll": "sha256-yytZo\/75TxQvQ7g1OYPXZyOF96lipPEFup3cJhw8ScM=",
-      "Helper.Client.dll": "sha256-oGDjHsjrOuLXQjSCLepw4Dtjjj0YDHuD79slDiwJ1L8="
+      "Helper.Client.dll": "sha256-jrtapZS8JRTzuaK86k\/k8VcGPrzgy1Xp5BNE3Ib3cnM="
     },
     "lazyAssembly": null,
     "pdb": {
       "Helper.Shared.pdb": "sha256-ZEFt82RwOapoTOqhTqTbYky9O8tIj4siNLiCNjjOos4=",
-      "Helper.Client.pdb": "sha256-Uc3vvrLFnhLKZ+6R\/57BxlRV0rzV3GYySn+gUr\/QxmY="
+      "Helper.Client.pdb": "sha256-EswRnXh3FNUSOXTYrvNZM2hdJPEf7mWhgs37XmW\/Jjo="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-Ek+C0V\/4GBnUGH1\/X20UjHhjyp7se2MX+2RHWSpKSDE=",

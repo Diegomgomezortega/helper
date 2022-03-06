@@ -1,5 +1,9 @@
 ﻿@page "/anuncios/nuevo"
+@*Inyectar SweetAlert*@
+@inject SweetAlertService Swal
+@*Se inyecta el navigation para poder navegar de paginas en pagina*@
 @inject NavigationManager navigationManager
+@*Se inyecta el http para tener acceso a los servicios de HTTP(tanto get,post,put,delete)*@
 @inject IHttpService http
 
 
@@ -10,8 +14,8 @@
 </FormAnuncio>
 
 @code {
-    public string txtbtn1 = "Guardar Anuncio";
-    public string txtbtn2 = "Cancelar";
+    //public string txtbtn1 = "Guardar Anuncio";
+    //public string txtbtn2 = "Cancelar";
     public string Tamano;
 
 
@@ -21,14 +25,14 @@
     private async Task GrabarNuevo()
     {
         anuncio.FechaAnuncio = DateTime.Now;
-        anuncio.UsuarioId = 4;
-        
+        anuncio.UsuarioId = 4;//momentaneo hasta que pueda tomar el id de cada usuario
+
         var httpRespuesta = await http.Post<Helper.Shared.Data.Entidades.Anuncio>("api/publicaciones", anuncio);
         if (httpRespuesta.Error)
         {
             var body = await httpRespuesta.GetBody();//Sitenemos un error, se va a mostrar
         }
-        navigationManager.NavigateTo("/anuncios");
+        navigationManager.NavigateTo("/anuncios"); //Luego va a los anuncios
 
     }
     private void Cancelar()
@@ -42,9 +46,9 @@
 
     }
     private void SelectTamano()
-        { 
-        
+    {
 
-        }
+
+    }
 
 }

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "9XjASRe7I0pnqSEGq3romTyX+f9crXDTXuaq+b9aoxZWOpJ3TE8NpfiBQ/WBvZzPHfYcu5WZK/CY11SF73OLiw==",
+  "dgSpecHash": "KIDYN2x8hdXtRQ5H9SLL24l2vLZycMcvkd4E2iOaHRRAqg42/4hHhUOOYvUcwbksu2b1T7HE6Od/BBSp6zFDtw==",
   "success": true,
   "projectFilePath": "D:\\Diego\\Aplicaciones\\BlazorWebAssembly\\Helper\\Helper\\Client\\Helper.Client.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\diego\\.nuget\\packages\\csvhelper\\27.2.1\\csvhelper.27.2.1.nupkg.sha512",
+    "C:\\Users\\diego\\.nuget\\packages\\currietechnologies.razor.sweetalert2\\5.1.0\\currietechnologies.razor.sweetalert2.5.1.0.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.14\\microsoft.aspnetcore.authorization.5.0.14.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.14\\microsoft.aspnetcore.components.5.0.14.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\5.0.14\\microsoft.aspnetcore.components.analyzers.5.0.14.nupkg.sha512",

@@ -103,6 +103,13 @@ using Helper.Shared.Data.Entidades;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 14 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Helpers;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/perdidos")]
     public partial class Perdidos : Microsoft.AspNetCore.Components.ComponentBase
     {

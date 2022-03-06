@@ -103,6 +103,13 @@ using Helper.Shared.Data.Entidades;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 14 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Helpers;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/anuncios/nuevo")]
     public partial class NuevoAnuncio : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -112,10 +119,10 @@ using Helper.Shared.Data.Entidades;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 12 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
+#line 16 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
        
-    public string txtbtn1 = "Guardar Anuncio";
-    public string txtbtn2 = "Cancelar";
+    //public string txtbtn1 = "Guardar Anuncio";
+    //public string txtbtn2 = "Cancelar";
     public string Tamano;
 
 
@@ -125,14 +132,14 @@ using Helper.Shared.Data.Entidades;
     private async Task GrabarNuevo()
     {
         anuncio.FechaAnuncio = DateTime.Now;
-        anuncio.UsuarioId = 4;
-        
+        anuncio.UsuarioId = 4;//momentaneo hasta que pueda tomar el id de cada usuario
+
         var httpRespuesta = await http.Post<Helper.Shared.Data.Entidades.Anuncio>("api/publicaciones", anuncio);
         if (httpRespuesta.Error)
         {
             var body = await httpRespuesta.GetBody();//Sitenemos un error, se va a mostrar
         }
-        navigationManager.NavigateTo("/anuncios");
+        navigationManager.NavigateTo("/anuncios"); //Luego va a los anuncios
 
     }
     private void Cancelar()
@@ -146,10 +153,10 @@ using Helper.Shared.Data.Entidades;
 
     }
     private void SelectTamano()
-        { 
-        
+    {
 
-        }
+
+    }
 
 
 #line default
@@ -157,6 +164,7 @@ using Helper.Shared.Data.Entidades;
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpService http { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private SweetAlertService Swal { get; set; }
     }
 }
 #pragma warning restore 1591
