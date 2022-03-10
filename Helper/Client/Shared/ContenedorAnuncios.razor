@@ -1,18 +1,18 @@
 ﻿@page "/anuncios"
 @inject IHttpService http
 <div class="container-fluid">
-    
+
     <div class="row">
 
         @if (anuncios == null)
         {
-        <h3 class="text-center">No hay anuncios disponibles. Realiza el tuyo!</h3>
+            <h3 class="text-center">No hay anuncios disponibles. Realiza el tuyo!</h3>
         }
         else
         {
             if (anuncios.Count == 0)
             {
-                
+
                 <h3>Cargando.....</h3>
             }
             else
@@ -23,15 +23,17 @@
                     {
                         case 1:
                             TipoAnuncio = "Buscado";
-                            colorHeader= "#ff9494";
+                            colorHeader = "#ff9494";
+
+
                             break;
                         case 2:
                             TipoAnuncio = "En Adopción";
-                            colorHeader= "#b3ffC0";
+                            colorHeader = "#b3ffC0";
                             break;
                         case 3:
                             TipoAnuncio = "Encontrado";
-                            colorHeader= "#c4cdff";
+                            colorHeader = "#c4cdff";
                             break;
                         default:
                             TipoAnuncio = "Buscado";
@@ -41,22 +43,30 @@
                     <div class="col-sm-4">
                         <div class="card text-center" style="width: 18rem; background-color: #FFEC84">
                             <div class="card-header" style="background-color:@colorHeader">
-                                <h2 class="text-center" >@TipoAnuncio</h2>
+                                <h2 class="text-center">@TipoAnuncio</h2>
                             </div>
-                            <img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">
-                            <div class="card-body">
-                                <h3 class="text-center">@item.Nombre</h3>
-                                <p class="text-center">@item.Descripcion</p>
+                            @*<img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">*@
+                            <img src="@item.RutaFoto" class="card-img-top" alt="@TipoAnuncio">
+                            @*<div class="card-body">
+                                    <h3 class="text-center">@item.Nombre</h3>
+                                    <p class="text-center">@item.Descripcion</p>
 
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">@item.Tamano</li>
-                                <li class="list-group-item">Fecha:@item.FechaSuceso.ToShortDateString()</li>
-                                <li class="list-group-item">Color: @item.ColorRGB1 - @item.ColorRGB2</li>
-                            </ul>
+                                </div>*@
+                            @*<ul class="list-group list-group-flush">
+                                    <li class="list-group-item">@item.Tamano</li>
+                                    <li class="list-group-item">Fecha:@item.FechaSuceso.ToShortDateString()</li>
+                                    <li class="list-group-item">Color: @item.ColorRGB1 - @item.ColorRGB2</li>
+                                </ul>*@
                             <div class="card-body">
-                                <button type="button" class="btn btn-primary btn-sm btn-block">Lo ví</button>
-                                <button type="button" class="btn btn-success btn-sm btn-block">Lo tengo conmigo</button>
+                                <div class="btn-group btn-group">
+                                    <button type="button" class="btn btn-primary">Lo ví</button>
+                                    <button type="button" class="btn btn-warning">Lo tengo</button>
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal" @onclick="()=>AnuncioCompleto(item)">Más info</button>
+
+                                </div>
+                                @*<button type="button" class="btn btn-primary btn-sm btn-block">Lo ví</button>
+                                    <button type="button" class="btn btn-warning btn-sm btn-block">Lo tengo conmigo</button>
+                                    <button type="button" class="btn btn-success btn-sm btn-block">Más info</button>*@
                             </div>
                         </div>
                         <br />
@@ -77,13 +87,70 @@
 
     </div>
 </div>
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Anuncio</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="card text-center" style="width: 18rem; background-color: #FFEC84">
+                    <div class="card-header">
+                        <h2 class="text-center">@completo.Tipo</h2>
+                    </div>
+                    @*<img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">*@
+                    <img src="@completo.RutaFoto" class="card-img-top" alt="tipo">
+                    <div class="card-body">
+                        <h3 class="text-center">@completo.Nombre</h3>
+                        <p class="text-center">@completo.Descripcion</p>
+
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">@completo.Tamano</li>
+                        <li class="list-group-item">Fecha:@completo.FechaSuceso.ToShortDateString()</li>
+                        <li class="list-group-item">Color: @completo.ColorRGB1 - @completo.ColorRGB2</li>
+                    </ul>
+                    <div class="card-body">
+
+                        @*<button type="button" class="btn btn-primary btn-sm btn-block">Lo ví</button>
+                            <button type="button" class="btn btn-warning btn-sm btn-block">Lo tengo conmigo</button>
+                            <button type="button" class="btn btn-success btn-sm btn-block">Más info</button>*@
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <div class="btn-group btn-group">
+                    <button type="button" class="btn btn-primary">Lo ví</button>
+                    <button type="button" class="btn btn-warning">Lo tengo</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 @code {
+    bool mostrarModal = false;
 
     string TipoAnuncio;
     string colorHeader;
 
-    List<Helper.Shared.Data.Entidades.Anuncio> anuncios=new List<Helper.Shared.Data.Entidades.Anuncio>();
+    DateTime fecha;
+    Anuncio completo = new();
+    AnuncioModal anuncioModal;
+
+    List<Helper.Shared.Data.Entidades.Anuncio> anuncios = new List<Helper.Shared.Data.Entidades.Anuncio>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -97,9 +164,14 @@
         {
             anuncios = respuestaHttp.Respuesta;
 
+
         }
 
-
+    }
+    private void AnuncioCompleto(Anuncio anuncio)
+    {
+        //anuncioModal.Mostrar();
+        completo = anuncio;
 
     }
 

@@ -118,6 +118,18 @@ using Helper.Client.Helpers;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 38 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\Adopciones.razor"
+       
+    //Confir_Cencel modalConfCancel =new Confir_Cencel();
+    //public void MostrarModal()
+    //{
+    //    modalConfCancel.Mostrar();
+    //}
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

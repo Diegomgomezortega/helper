@@ -119,13 +119,18 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 81 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\ContenedorAnuncios.razor"
+#line 143 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\ContenedorAnuncios.razor"
        
+    bool mostrarModal = false;
 
     string TipoAnuncio;
     string colorHeader;
 
-    List<Helper.Shared.Data.Entidades.Anuncio> anuncios=new List<Helper.Shared.Data.Entidades.Anuncio>();
+    DateTime fecha;
+    Anuncio completo = new();
+    AnuncioModal anuncioModal;
+
+    List<Helper.Shared.Data.Entidades.Anuncio> anuncios = new List<Helper.Shared.Data.Entidades.Anuncio>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -139,9 +144,14 @@ using Helper.Client.Helpers;
         {
             anuncios = respuestaHttp.Respuesta;
 
+
         }
 
-
+    }
+    private void AnuncioCompleto(Anuncio anuncio)
+    {
+        //anuncioModal.Mostrar();
+        completo = anuncio;
 
     }
 

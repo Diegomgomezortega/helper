@@ -119,7 +119,7 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 16 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
+#line 15 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
        
     //public string txtbtn1 = "Guardar Anuncio";
     //public string txtbtn2 = "Cancelar";
@@ -164,7 +164,6 @@ using Helper.Client.Helpers;
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpService http { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private SweetAlertService Swal { get; set; }
     }
 }
 #pragma warning restore 1591
