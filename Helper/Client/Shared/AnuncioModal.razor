@@ -21,6 +21,7 @@
                         <img src="@completo.RutaFoto" class="card-img-top" alt="tipo">
                         <div class="card-body">
                             <h3 class="text-center">@completo.Nombre</h3>
+                            @*<h3 class="text-center">@completo.Tamano</h3>*@
                             <p class="text-center">@completo.Descripcion</p>
 
                         </div>
@@ -30,23 +31,24 @@
                             <li class="list-group-item">Color: @completo.ColorRGB1 - @completo.ColorRGB2</li>
                         </ul>
                         <div class="card-body">
+                            <div class="btn-group btn-group">
+                                <button type="button" class="btn btn-primary">Lo ví</button>
+                                <button type="button" class="btn btn-warning">Lo tengo</button>
+                            </div>
 
-                            @*<button type="button" class="btn btn-primary btn-sm btn-block">Lo ví</button>
-                                <button type="button" class="btn btn-warning btn-sm btn-block">Lo tengo conmigo</button>
-                                <button type="button" class="btn btn-success btn-sm btn-block">Más info</button>*@
                         </div>
                     </div>
 
                 </div>
 
                 <!-- Modal footer -->
-                <div class="modal-footer">
+                @*<div class="modal-footer">
                     <div class="btn-group btn-group">
                         <button type="button" class="btn btn-primary">Lo ví</button>
                         <button type="button" class="btn btn-warning">Lo tengo</button>
 
                     </div>
-                </div>
+                </div>*@
 
             </div>
         </div>

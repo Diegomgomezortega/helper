@@ -119,7 +119,7 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 143 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\ContenedorAnuncios.razor"
+#line 110 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\ContenedorAnuncios.razor"
        
     bool mostrarModal = false;
 
@@ -150,8 +150,36 @@ using Helper.Client.Helpers;
     }
     private void AnuncioCompleto(Anuncio anuncio)
     {
-        //anuncioModal.Mostrar();
+
         completo = anuncio;
+        TipoPublicacion(completo);
+
+    }
+
+    private void TipoPublicacion(Anuncio anuncio)
+    {
+        switch (anuncio.Tipo)
+        {
+            case 1:
+                TipoAnuncio = "Buscado";
+                colorHeader = "#ff9494";
+
+
+                break;
+            case 2:
+                TipoAnuncio = "En Adopción";
+                colorHeader = "#b3ffC0";
+                break;
+            case 3:
+                TipoAnuncio = "Encontrado";
+                colorHeader = "#c4cdff";
+                break;
+            default:
+                TipoAnuncio = "Buscado";
+                colorHeader = "#ff9494";
+                break;
+        }
+        
 
     }
 

@@ -118,7 +118,7 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 57 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\AnuncioModal.razor"
+#line 59 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\AnuncioModal.razor"
        
     private bool mostrar = false;
     [Parameter] public Anuncio completo { get; set; }
