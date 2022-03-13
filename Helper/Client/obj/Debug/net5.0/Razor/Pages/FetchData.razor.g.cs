@@ -80,6 +80,34 @@ using Helper.Client.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Servicios;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Pages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Shared.Data.Entidades;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 14 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Helpers;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\FetchData.razor"
 using Helper.Shared;
 

@@ -321,6 +321,32 @@
           "Helper.Server.dll": {}
         }
       },
+      "CsvHelper/27.2.1": {
+        "runtime": {
+          "lib/net5.0/CsvHelper.dll": {
+            "assemblyVersion": "27.0.0.0",
+            "fileVersion": "27.2.1.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/CsvHelper.dll": {}
+        }
+      },
+      "CurrieTechnologies.Razor.SweetAlert2/5.1.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.14",
+          "Microsoft.AspNetCore.Components.Web": "5.0.14"
+        },
+        "runtime": {
+          "lib/net5.0/CurrieTechnologies.Razor.SweetAlert2.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/CurrieTechnologies.Razor.SweetAlert2.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {
@@ -1552,6 +1578,8 @@
       },
       "Helper.Client/1.0.0": {
         "dependencies": {
+          "CsvHelper": "27.2.1",
+          "CurrieTechnologies.Razor.SweetAlert2": "5.1.0",
           "Helper.Shared": "1.0.0",
           "Microsoft.AspNetCore.Components.WebAssembly": "5.0.14",
           "System.Net.Http.Json": "5.0.0"
@@ -3225,6 +3253,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "CsvHelper/27.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uS5ix5hL9gL5taiAG//CScyJa8Fn1ZOh3FDhDvf4laboESFs84mCNropfp7PIt8xCkyQofljFpqu1B5UnSXjyA==",
+      "path": "csvhelper/27.2.1",
+      "hashPath": "csvhelper.27.2.1.nupkg.sha512"
+    },
+    "CurrieTechnologies.Razor.SweetAlert2/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EaLdqT6WO+MtNhK3MlUf2RYnCX9ucNvS7vZKWUhsyKWeUV8XSw3rTtnyAnYeQJPhcgdaDxU2bOEg7k3HQ3US2Q==",
+      "path": "currietechnologies.razor.sweetalert2/5.1.0",
+      "hashPath": "currietechnologies.razor.sweetalert2.5.1.0.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",

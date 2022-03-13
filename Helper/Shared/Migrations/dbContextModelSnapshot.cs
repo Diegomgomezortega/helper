@@ -33,7 +33,17 @@ namespace Helper.Shared.Migrations
                     b.Property<string>("ColorRGB2")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
                     b.Property<string>("Especie")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Estado")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FechaAnuncio")
@@ -42,11 +52,15 @@ namespace Helper.Shared.Migrations
                     b.Property<DateTime>("FechaSuceso")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("FotoRuta")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Foto")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("RutaFoto")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tamano")
