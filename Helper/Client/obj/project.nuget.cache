@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9XjASRe7I0pnqSEGq3romTyX+f9crXDTXuaq+b9aoxZWOpJ3TE8NpfiBQ/WBvZzPHfYcu5WZK/CY11SF73OLiw==",
+  "dgSpecHash": "HWHOiwl0wU7jwo7HHH+ffQdg2LSk0U/POJfxTI99p5eczcE7UaWdwOqLKYj3wO/Hq0wbK+g6DwtdMbMfoiONGw==",
   "success": true,
   "projectFilePath": "D:\\Diego\\Aplicaciones\\BlazorWebAssembly\\Helper\\Helper\\Client\\Helper.Client.csproj",
   "expectedPackageFiles": [
@@ -132,7 +132,7 @@
     "C:\\Users\\diego\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\diego\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.14\\microsoft.netcore.app.runtime.browser-wasm.5.0.14.nupkg.sha512"
+    "C:\\Users\\diego\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.15\\microsoft.netcore.app.runtime.browser-wasm.5.0.15.nupkg.sha512"
   ],
   "logs": []
 }
