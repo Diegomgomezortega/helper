@@ -118,7 +118,7 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 72 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\FormAnuncio.razor"
+#line 89 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\FormAnuncio.razor"
        
     [Parameter] public Anuncio nuevo { get; set; }
     [Parameter] public EventCallback onValidSubmit { get; set; }
@@ -126,7 +126,26 @@ using Helper.Client.Helpers;
     [Parameter] public EventCallback onChange { get; set; }
     [Parameter] public string textobtn1 { get; set; }
     [Parameter] public string textobtn2 { get; set; }
-    
+
+    private IList<string> ImageDateUrls = new List<string>();
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        ImageDateUrls.Clear();
+        var maxAllowedFile = 1;
+        var format = "image/jpg";
+        foreach (var imageFile in e.GetMultipleFiles(maxAllowedFile))
+        {
+            var resizedFile = await imageFile.RequestImageFileAsync(format, 200, 200);
+            var buffer = new byte[resizedFile.Size];
+            await resizedFile.OpenReadStream().ReadAsync(buffer);
+            var imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+            ImageDateUrls.Add(imageDataUrl);
+
+        }
+
+
+    }
+
 
 
 

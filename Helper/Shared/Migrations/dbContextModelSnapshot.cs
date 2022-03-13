@@ -43,6 +43,9 @@ namespace Helper.Shared.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Estado")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("FechaAnuncio")
                         .HasColumnType("datetime2");
 

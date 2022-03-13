@@ -12,9 +12,11 @@ namespace Helper.Shared.Data.Entidades
     public class Anuncio
     {
         public int Id { get; set; }
-        
-        [Required(ErrorMessage ="¿En que estado se encuentra?")]
+
+        [Required(ErrorMessage = "¿En que estado se encuentra?")]
         public int Tipo { get; set; } //1: Perdido, 2:En adopcion, 3: Encontrado
+        
+        public string Estado { get; set; }//1: Perdido, 2:En adopcion, 3: Encontrado
         [Required(ErrorMessage = "El nombre es obligatorio (asi podemos conocer mejor a nuestro amiga/o)")]
         [MaxLength(20, ErrorMessage = "El campo tiene como máximo {1} caracteres.")]
         public string Nombre { get; set; }

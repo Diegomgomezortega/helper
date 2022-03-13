@@ -119,7 +119,7 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 110 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\ContenedorAnuncios.razor"
+#line 114 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\ContenedorAnuncios.razor"
        
     bool mostrarModal = false;
 
@@ -130,7 +130,7 @@ using Helper.Client.Helpers;
     Anuncio completo = new();
     AnuncioModal anuncioModal;
 
-    List<Helper.Shared.Data.Entidades.Anuncio> anuncios = new List<Helper.Shared.Data.Entidades.Anuncio>();
+    List<Anuncio> anuncios = new List<Anuncio>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -150,36 +150,32 @@ using Helper.Client.Helpers;
     }
     private void AnuncioCompleto(Anuncio anuncio)
     {
+        TipoPublicacion(anuncio.Tipo);
 
         completo = anuncio;
-        TipoPublicacion(completo);
+
+
 
     }
 
-    private void TipoPublicacion(Anuncio anuncio)
+    private void TipoPublicacion(int tipo)
     {
-        switch (anuncio.Tipo)
+        switch (tipo)
         {
             case 1:
-                TipoAnuncio = "Buscado";
                 colorHeader = "#ff9494";
-
-
                 break;
             case 2:
-                TipoAnuncio = "En Adopción";
                 colorHeader = "#b3ffC0";
                 break;
             case 3:
-                TipoAnuncio = "Encontrado";
-                colorHeader = "#c4cdff";
+                colorHeader = "#39FF33";
                 break;
-            default:
-                TipoAnuncio = "Buscado";
-                colorHeader = "#ff9494";
-                break;
+                //default:
+                //    colorHeader = "#ff9494";
+                //    break;
         }
-        
+
 
     }
 

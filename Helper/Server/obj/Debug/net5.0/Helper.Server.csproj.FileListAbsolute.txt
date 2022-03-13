@@ -95,3 +95,4 @@ D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Server\obj\Debug\net5.0\He
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Server\obj\Debug\net5.0\ref\Helper.Server.dll
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Server\obj\Debug\net5.0\Helper.Server.pdb
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Server\obj\Debug\net5.0\Helper.Server.genruntimeconfig.cache
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Server\obj\Debug\net5.0\Helper.Server.MvcApplicationPartsAssemblyInfo.cs

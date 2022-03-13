@@ -12,33 +12,37 @@
         {
             if (anuncios.Count == 0)
             {
+                <div class="figure-img">
+                    <center>
+                        <img src="image/loading.gif" />
+                    </center>
 
-                <h3>Cargando.....</h3>
+                </div>
+
             }
             else
             {
                 @foreach (var item in anuncios)
                 {
-                    TipoPublicacion(item);
+                    int tipo1 = item.Tipo;
+                    TipoPublicacion(tipo1);
 
                     <div class="col-sm-4">
                         <div class="card text-center" style="width: 18rem;">
                             @*background-color: #FFEC84"*@
                             <div class="card-header" style="background-color:@colorHeader">
-                                <h2 class="text-center">@TipoAnuncio</h2>
+                                <h2 class="text-center">@item.Estado</h2>
                             </div>
                             @*<img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">*@
                             <img src="@item.RutaFoto" class="card-img-top" alt="@TipoAnuncio">
-                            @*<div class="card-body">
-            <h3 class="text-center">@item.Nombre</h3>
-            <p class="text-center">@item.Descripcion</p>
-
-        </div>*@
+                            <div class="card-body">
+                                <h3 class="text-center">@item.Nombre</h3>
+                            </div>
                             @*<ul class="list-group list-group-flush">
-            <li class="list-group-item">@item.Tamano</li>
-            <li class="list-group-item">Fecha:@item.FechaSuceso.ToShortDateString()</li>
-            <li class="list-group-item">Color: @item.ColorRGB1 - @item.ColorRGB2</li>
-        </ul>*@
+                                    <li class="list-group-item">@item.Tamano</li>
+                                    <li class="list-group-item">Fecha:@item.FechaSuceso.ToShortDateString()</li>
+                                    <li class="list-group-item">Color: @item.ColorRGB1 - @item.ColorRGB2</li>
+                                </ul>*@
                             <div class="card-body">
                                 @*<div class="btn-group btn-group">*@
                                 <button type="button" class="btn btn-primary">Lo ví</button>
@@ -47,8 +51,8 @@
 
                                 @*</div>*@
                                 @*<button type="button" class="btn btn-primary btn-sm btn-block">Lo ví</button>
-            <button type="button" class="btn btn-warning btn-sm btn-block">Lo tengo conmigo</button>
-            <button type="button" class="btn btn-success btn-sm btn-block">Más info</button>*@
+                                    <button type="button" class="btn btn-warning btn-sm btn-block">Lo tengo conmigo</button>
+                                    <button type="button" class="btn btn-success btn-sm btn-block">Más info</button>*@
                             </div>
                         </div>
                         <br />
@@ -75,14 +79,14 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <div class="card text-center" style="width: 18rem; background-color: #FFEC84">
-                        <div class="card-header" style="background-color:@colorHeader">
-                            <h2 class="text-center">@TipoAnuncio</h2>
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-header" style="background-color: #c4cdff">
+                            <h2 class="text-center">@completo.Estado</h2>
                         </div>
                         <img src="@completo.RutaFoto" class="card-img-top" alt="tipo">
                         <div class="card-body">
                             <h3 class="text-center">@completo.Nombre</h3>
-                         </div>
+                        </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">@completo.Descripcion</li>
                             <li class="list-group-item">@completo.Tamano</li>
@@ -90,8 +94,8 @@
                             <li class="list-group-item">Color: @completo.ColorRGB1 - @completo.ColorRGB2</li>
                         </ul>
                         <div class="card-body">
-                                <button type="button" class="btn btn-primary">Lo ví</button>
-                                <button type="button" class="btn btn-success">Lo tengo</button>
+                            <button type="button" class="btn btn-primary">Lo ví</button>
+                            <button type="button" class="btn btn-success">Lo tengo</button>
                         </div>
                     </div>
 
@@ -117,7 +121,7 @@
     Anuncio completo = new();
     AnuncioModal anuncioModal;
 
-    List<Helper.Shared.Data.Entidades.Anuncio> anuncios = new List<Helper.Shared.Data.Entidades.Anuncio>();
+    List<Anuncio> anuncios = new List<Anuncio>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -137,36 +141,32 @@
     }
     private void AnuncioCompleto(Anuncio anuncio)
     {
+        TipoPublicacion(anuncio.Tipo);
 
         completo = anuncio;
-        TipoPublicacion(completo);
+
+
 
     }
 
-    private void TipoPublicacion(Anuncio anuncio)
+    private void TipoPublicacion(int tipo)
     {
-        switch (anuncio.Tipo)
+        switch (tipo)
         {
             case 1:
-                TipoAnuncio = "Buscado";
                 colorHeader = "#ff9494";
-
-
                 break;
             case 2:
-                TipoAnuncio = "En Adopción";
                 colorHeader = "#b3ffC0";
                 break;
             case 3:
-                TipoAnuncio = "Encontrado";
-                colorHeader = "#c4cdff";
+                colorHeader = "#39FF33";
                 break;
-            default:
-                TipoAnuncio = "Buscado";
-                colorHeader = "#ff9494";
-                break;
+                //default:
+                //    colorHeader = "#ff9494";
+                //    break;
         }
-        
+
 
     }
 
