@@ -126,7 +126,8 @@ using Helper.Client.Helpers;
     [Parameter] public EventCallback onChange { get; set; }
     [Parameter] public string textobtn1 { get; set; }
     [Parameter] public string textobtn2 { get; set; }
-
+    byte[] image;
+    private string Estado;
     private IList<string> ImageDateUrls = new List<string>();
     private async Task OnInputFileChange(InputFileChangeEventArgs e)
     {
@@ -135,16 +136,42 @@ using Helper.Client.Helpers;
         var format = "image/jpg";
         foreach (var imageFile in e.GetMultipleFiles(maxAllowedFile))
         {
+
             var resizedFile = await imageFile.RequestImageFileAsync(format, 200, 200);
+
             var buffer = new byte[resizedFile.Size];
             await resizedFile.OpenReadStream().ReadAsync(buffer);
+            nuevo.Foto = buffer;
             var imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
             ImageDateUrls.Add(imageDataUrl);
 
+
+        }
+
+    }
+
+    private void TipoPublicacion(int tipo)
+    {
+        switch (tipo)
+        {
+            case 1:
+                nuevo.Estado = "Perdido";
+                break;
+            case 2:
+                nuevo.Estado = "En Adopción";
+                break;
+            case 3:
+                nuevo.Estado = "Encontrado";
+                break;
+                //default:
+                //    colorHeader = "#ff9494";
+                //    break;
         }
 
 
     }
+
+
 
 
 

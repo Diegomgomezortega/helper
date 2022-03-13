@@ -134,7 +134,7 @@ using Helper.Client.Helpers;
         anuncio.FechaAnuncio = DateTime.Now;
         anuncio.UsuarioId = 4;//momentaneo hasta que pueda tomar el id de cada usuario
 
-        var httpRespuesta = await http.Post<Helper.Shared.Data.Entidades.Anuncio>("api/publicaciones", anuncio);
+        var httpRespuesta = await http.Post<Anuncio>("api/publicaciones", anuncio);
         if (httpRespuesta.Error)
         {
             var body = await httpRespuesta.GetBody();//Sitenemos un error, se va a mostrar

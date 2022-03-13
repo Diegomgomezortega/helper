@@ -38,7 +38,7 @@
                     <ValidationMessage For="@(() => nuevo.Nombre)" />
 
                     <label> Estado del amiga/o:</label>
-                    <InputSelect @bind-Value="nuevo.Tipo">
+                    <InputSelect @bind-Value="nuevo.Tipo" @onchange="()=>TipoPublicacion(nuevo.Tipo)">
                         <option value="1">Perdido</option>
                         <option value="2">En adopción</option>
                         <option value="3">Encontrado</option>
@@ -56,7 +56,7 @@
                 <ul class="list-group list-group-flush">
                     <left>
                         <label>Tamaño del amiga/o:</label>
-                        <InputSelect @bind-Value="nuevo.Tamano" class="form-select form-select-lg mb-3" @onchange="onChange" aria-label=".form-select-lg example">
+                        <InputSelect @bind-Value="nuevo.Tamano" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                             <option value="Pequeño">Chico (1 a 5kg)</option>
                             <option value="Mediano">Mediano (6 a 10kg)</option>
                             <option value="Grande">Grande (11 a 15kg)</option>
@@ -93,7 +93,8 @@
     [Parameter] public EventCallback onChange { get; set; }
     [Parameter] public string textobtn1 { get; set; }
     [Parameter] public string textobtn2 { get; set; }
-
+    byte[] image;
+    private string Estado;
     private IList<string> ImageDateUrls = new List<string>();
     private async Task OnInputFileChange(InputFileChangeEventArgs e)
     {
@@ -102,16 +103,42 @@
         var format = "image/jpg";
         foreach (var imageFile in e.GetMultipleFiles(maxAllowedFile))
         {
+
             var resizedFile = await imageFile.RequestImageFileAsync(format, 200, 200);
+
             var buffer = new byte[resizedFile.Size];
             await resizedFile.OpenReadStream().ReadAsync(buffer);
+            nuevo.Foto = buffer;
             var imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
             ImageDateUrls.Add(imageDataUrl);
 
+
+        }
+
+    }
+
+    private void TipoPublicacion(int tipo)
+    {
+        switch (tipo)
+        {
+            case 1:
+                nuevo.Estado = "Perdido";
+                break;
+            case 2:
+                nuevo.Estado = "En Adopción";
+                break;
+            case 3:
+                nuevo.Estado = "Encontrado";
+                break;
+                //default:
+                //    colorHeader = "#ff9494";
+                //    break;
         }
 
 
     }
+
+
 
 
 

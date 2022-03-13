@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Helper.Shared.Data.Entidades
 {
@@ -38,5 +40,8 @@ namespace Helper.Shared.Data.Entidades
         [MaxLength(200, ErrorMessage = "El campo tiene como máximo {1} caracteres.")]
         public string Descripcion { get; set; }
         //public Usuario Usuario { get; set; }
+
+        
     }
+    
 }

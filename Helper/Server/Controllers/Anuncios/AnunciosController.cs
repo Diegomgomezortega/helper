@@ -24,13 +24,13 @@ namespace Helper.Server.Controllers.Anuncios
         {
             return await context.Anuncios.ToListAsync();
         }
-        [HttpGet("{tipo:int}")]
-        public async Task< ActionResult<Anuncio>> Get(int tipo)
+        [HttpGet("{id:int}")]
+        public async Task< ActionResult<Anuncio>> Get(int id)
         {
-            var anuncio = await context.Anuncios.Where(x => x.Tipo == tipo ). FirstOrDefaultAsync();
+            var anuncio = await context.Anuncios.Where(x => x.Id == id ). FirstOrDefaultAsync();
             if (anuncio == null)
             {
-                return NotFound($"No existe anuncios del usuario ");
+                return NotFound($"No existe anuncios con ese Id ");
             }
             return anuncio;
         }
@@ -48,6 +48,7 @@ namespace Helper.Server.Controllers.Anuncios
         [HttpPost]
         public async Task< ActionResult<Anuncio>> Post(Anuncio anuncio)
         {
+          
             context.Anuncios.Add(anuncio);
             await context.SaveChangesAsync();
             return anuncio;

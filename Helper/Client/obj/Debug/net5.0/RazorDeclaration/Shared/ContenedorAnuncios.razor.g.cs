@@ -119,67 +119,70 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 114 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\ContenedorAnuncios.razor"
-       
-    bool mostrarModal = false;
+#line 118 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\ContenedorAnuncios.razor"
+           
 
-    string TipoAnuncio;
-    string colorHeader;
+        bool mostrarModal = false;
+        string TipoAnuncio;
+        string colorHeader;
+        DateTime fecha;
+        Anuncio completo = new();
+        AnuncioModal anuncioModal;
+        List<Anuncio> anuncios = new List<Anuncio>();
+        List<Anuncio> anunciosFiltrados = new List<Anuncio>();
 
-    DateTime fecha;
-    Anuncio completo = new();
-    AnuncioModal anuncioModal;
-
-    List<Anuncio> anuncios = new List<Anuncio>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        base.OnInitialized();
-        await TraerAnuncios();
-    }
-    private async Task TraerAnuncios()
-    {
-        var respuestaHttp = await http.Get<List<Helper.Shared.Data.Entidades.Anuncio>>("api/publicaciones");
-        if (!respuestaHttp.Error)
+        protected override async Task OnInitializedAsync()
         {
-            anuncios = respuestaHttp.Respuesta;
+            base.OnInitialized();
+            await TraerAnuncios();
+        }
+        private async Task TraerAnuncios()
+        {
+            var respuestaHttp = await http.Get<List<Helper.Shared.Data.Entidades.Anuncio>>("api/publicaciones");
+            if (!respuestaHttp.Error)
+            {
+                anuncios = respuestaHttp.Respuesta;
+
+
+            }
+
+        }
+        private void AnuncioCompleto(Anuncio anuncio)
+        {
+            TipoPublicacion(anuncio);
+
+            completo = anuncio;
+
 
 
         }
 
-    }
-    private void AnuncioCompleto(Anuncio anuncio)
-    {
-        TipoPublicacion(anuncio.Tipo);
-
-        completo = anuncio;
-
-
-
-    }
-
-    private void TipoPublicacion(int tipo)
-    {
-        switch (tipo)
+        private void TipoPublicacion(Anuncio tipo)
         {
-            case 1:
-                colorHeader = "#ff9494";
-                break;
-            case 2:
-                colorHeader = "#b3ffC0";
-                break;
-            case 3:
-                colorHeader = "#39FF33";
-                break;
-                //default:
-                //    colorHeader = "#ff9494";
-                //    break;
+            switch (tipo.Tipo)
+            {
+                case 1:
+                    colorHeader = "#ff9494";
+                    tipo.Estado = "Perdido";
+                    break;
+                case 2:
+                    colorHeader = "#FFF664";
+                    tipo.Estado = "En Adopción";
+                    break;
+                case 3:
+                    colorHeader = "#7aff33";
+                    tipo.Estado = "Encontrado";
+                    break;
+                    //default:
+                    //    colorHeader = "#ff9494";
+                    //    break;
+            }
+
+
         }
 
 
-    }
-
-
+    
 
 #line default
 #line hidden
