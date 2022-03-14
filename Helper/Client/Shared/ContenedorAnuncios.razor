@@ -24,10 +24,10 @@
                     <br />
                     <center>
                         <div class="btn-group">
-
-                            <button type="button" class="btn btn-outline-danger">Perdidos</button>
-                            <button type="button" class="btn btn-outline-warning">En Adopción</button>
-                            <button type="button" class="btn btn-outline-success">Encontrados</button>
+                            <button type="button" class="btn btn-outline-primary"@onclick="()=>Todos()">Todos</button>
+                            <button type="button" class="btn btn-outline-danger" @onclick="()=>Filtrar(1)">Perdidos</button>
+                            <button type="button" class="btn btn-outline-warning" @onclick="()=>Filtrar(2)">En Adopción</button>
+                            <button type="button" class="btn btn-outline-success" @onclick="()=>Filtrar(3)">Encontrados</button>
 
                         </div>
                     </center>
@@ -125,6 +125,8 @@
         AnuncioModal anuncioModal;
         List<Anuncio> anuncios = new List<Anuncio>();
         List<Anuncio> anunciosFiltrados = new List<Anuncio>();
+        List<Anuncio> anunciosAll = new List<Anuncio>();
+
 
         protected override async Task OnInitializedAsync()
         {
@@ -136,7 +138,9 @@
             var respuestaHttp = await http.Get<List<Helper.Shared.Data.Entidades.Anuncio>>("api/publicaciones");
             if (!respuestaHttp.Error)
             {
-                anuncios = respuestaHttp.Respuesta;
+                anunciosAll = respuestaHttp.Respuesta;
+                Todos();
+                
 
 
             }
@@ -151,7 +155,6 @@
 
 
         }
-
         private void TipoPublicacion(Anuncio tipo)
         {
             switch (tipo.Tipo)
@@ -173,6 +176,26 @@
                     //    break;
             }
 
+
+        }
+        private void Filtrar(int tipo)
+        {
+            anuncios = FiltroTipo(tipo);
+        }
+        private List<Anuncio> FiltroTipo(int tipo)
+        {
+            Todos();
+            var anunciosFilt= from a in anuncios
+                              where a.Tipo == tipo
+                              select a;
+            anunciosFiltrados = anunciosFilt.ToList();
+            return anunciosFiltrados;
+
+
+        }
+        private void Todos()
+        {
+            anuncios = anunciosAll;
 
         }
 

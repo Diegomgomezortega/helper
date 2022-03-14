@@ -130,6 +130,8 @@ using Helper.Client.Helpers;
         AnuncioModal anuncioModal;
         List<Anuncio> anuncios = new List<Anuncio>();
         List<Anuncio> anunciosFiltrados = new List<Anuncio>();
+        List<Anuncio> anunciosAll = new List<Anuncio>();
+
 
         protected override async Task OnInitializedAsync()
         {
@@ -141,7 +143,9 @@ using Helper.Client.Helpers;
             var respuestaHttp = await http.Get<List<Helper.Shared.Data.Entidades.Anuncio>>("api/publicaciones");
             if (!respuestaHttp.Error)
             {
-                anuncios = respuestaHttp.Respuesta;
+                anunciosAll = respuestaHttp.Respuesta;
+                Todos();
+                
 
 
             }
@@ -156,7 +160,6 @@ using Helper.Client.Helpers;
 
 
         }
-
         private void TipoPublicacion(Anuncio tipo)
         {
             switch (tipo.Tipo)
@@ -178,6 +181,26 @@ using Helper.Client.Helpers;
                     //    break;
             }
 
+
+        }
+        private void Filtrar(int tipo)
+        {
+            anuncios = FiltroTipo(tipo);
+        }
+        private List<Anuncio> FiltroTipo(int tipo)
+        {
+            Todos();
+            var anunciosFilt= from a in anuncios
+                              where a.Tipo == tipo
+                              select a;
+            anunciosFiltrados = anunciosFilt.ToList();
+            return anunciosFiltrados;
+
+
+        }
+        private void Todos()
+        {
+            anuncios = anunciosAll;
 
         }
 

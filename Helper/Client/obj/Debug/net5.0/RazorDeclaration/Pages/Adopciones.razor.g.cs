@@ -118,39 +118,6 @@ using Helper.Client.Helpers;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 30 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\Adopciones.razor"
-       
-    Anuncio a = new Anuncio();
-    private IList<string> ImageDateUrls = new List<string>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        base.OnInitialized();
-        await TraerAnuncios();
-    }
-
-
-    private async Task TraerAnuncios()
-    {
-        var respuestaHttp = await http.Get<Anuncio>("api/publicaciones/16");
-        if (!respuestaHttp.Error)
-        {
-            a = respuestaHttp.Respuesta;
-            var format = "image/jpg";
-            var imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(a.Foto)}";
-            ImageDateUrls.Add(imageDataUrl);
-
-
-        }
-
-    }
-
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpService http { get; set; }
     }
 }
 #pragma warning restore 1591
