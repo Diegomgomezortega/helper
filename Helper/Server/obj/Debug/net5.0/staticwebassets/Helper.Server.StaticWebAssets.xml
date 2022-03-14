@@ -2,4 +2,5 @@
   <ContentRoot BasePath="/" Path="D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\bin\Debug\net5.0\wwwroot\" />
   <ContentRoot BasePath="/" Path="D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\obj\Debug\net5.0\scopedcss\bundle\" />
   <ContentRoot BasePath="/" Path="D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\wwwroot\" />
+  <ContentRoot BasePath="_content/CurrieTechnologies.Razor.SweetAlert2" Path="C:\Users\diego\.nuget\packages\currietechnologies.razor.sweetalert2\5.1.0\build\..\staticwebassets\" />
 </StaticWebAssets>

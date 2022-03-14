@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "flXKFpSPz9f3lFmrqjvwR4Zxt8IVltDju6jOq6q4goTa6Rn3xP9d0UaJwHUcSO7ZbdBQHHjQwLAuZsEE/fZO8A==",
+  "dgSpecHash": "OeXoI9UsIUIj+q5slsUraKweWASzzgj6epT+MlZi0oR+6h057fx2UrIR7kTliFVGXVmh40t1Df9NXmgP8twqIA==",
   "success": true,
   "projectFilePath": "D:\\Diego\\Aplicaciones\\BlazorWebAssembly\\Helper\\Helper\\Server\\Helper.Server.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\diego\\.nuget\\packages\\csvhelper\\27.2.1\\csvhelper.27.2.1.nupkg.sha512",
+    "C:\\Users\\diego\\.nuget\\packages\\currietechnologies.razor.sweetalert2\\5.1.0\\currietechnologies.razor.sweetalert2.5.1.0.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.14\\microsoft.aspnetcore.authorization.5.0.14.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.14\\microsoft.aspnetcore.components.5.0.14.nupkg.sha512",
@@ -127,5 +129,12 @@
     "C:\\Users\\diego\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché D:\\Diego\\Aplicaciones\\BlazorWebAssembly\\Helper\\Helper\\Server\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

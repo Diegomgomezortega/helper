@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "HWHOiwl0wU7jwo7HHH+ffQdg2LSk0U/POJfxTI99p5eczcE7UaWdwOqLKYj3wO/Hq0wbK+g6DwtdMbMfoiONGw==",
+  "dgSpecHash": "WfPEixD0PNJZAbs3guwYe0nnR/qmjhQRPNJLBvmFWXrwcwCjdUdc5OJK72T1mBnbMf4oxR4OTpINLPuUTVtY8Q==",
   "success": true,
   "projectFilePath": "D:\\Diego\\Aplicaciones\\BlazorWebAssembly\\Helper\\Helper\\Client\\Helper.Client.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\diego\\.nuget\\packages\\csvhelper\\27.2.1\\csvhelper.27.2.1.nupkg.sha512",
+    "C:\\Users\\diego\\.nuget\\packages\\currietechnologies.razor.sweetalert2\\5.1.0\\currietechnologies.razor.sweetalert2.5.1.0.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.14\\microsoft.aspnetcore.authorization.5.0.14.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.14\\microsoft.aspnetcore.components.5.0.14.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\5.0.14\\microsoft.aspnetcore.components.analyzers.5.0.14.nupkg.sha512",
@@ -134,5 +136,12 @@
     "C:\\Users\\diego\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\diego\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.15\\microsoft.netcore.app.runtime.browser-wasm.5.0.15.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché D:\\Diego\\Aplicaciones\\BlazorWebAssembly\\Helper\\Helper\\Client\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

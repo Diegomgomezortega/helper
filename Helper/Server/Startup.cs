@@ -10,6 +10,7 @@ using System.Linq;
 using Helper.Shared.Data;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
+using CurrieTechnologies.Razor.SweetAlert2;
 
 namespace Helper.Server
 {
@@ -28,11 +29,13 @@ namespace Helper.Server
         {
             services.AddDbContext<dbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("Conn")));
+           
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Helper", Version = "v1" });
             });
+            #region Codigo para evitar el borrado en Cascada
             //Para evitar ciclos en los pedidos:
             //.NET3.1
             //Instala la librería: Microsoft.AspNetCore.Mvc.NewtonsoftJson
@@ -45,10 +48,12 @@ namespace Helper.Server
             //.NET6
             //services.AddControllersWithViews().AddJsonOptions(x => 
             //    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
+            #endregion
 
             services.AddControllersWithViews();//.AddJsonOptions(x =>
             //    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);;
             services.AddRazorPages();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -82,6 +82,34 @@ using Helper.Client.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Servicios;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Pages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Shared.Data.Entidades;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 14 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\_Imports.razor"
+using Helper.Client.Helpers;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -90,7 +118,7 @@ using Helper.Client.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\NavMenu.razor"
+#line 75 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

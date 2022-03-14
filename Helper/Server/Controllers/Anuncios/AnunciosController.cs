@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Helper.Server.Controllers.Anuncios
 {
     [ApiController]
-    [Route("api/anuncios")] //Ruta por la cual el server va a buscar a nuestro controlador y buscar lo que necesita
+    [Route("api/publicaciones")] //Ruta por la cual el server va a buscar a nuestro controlador y buscar lo que necesita
     public class AnunciosController: ControllerBase
     {
         private readonly dbContext context;
@@ -24,13 +24,13 @@ namespace Helper.Server.Controllers.Anuncios
         {
             return await context.Anuncios.ToListAsync();
         }
-        [HttpGet("{tipo:int}")]
-        public async Task< ActionResult<Anuncio>> Get(int tipo)
+        [HttpGet("{id:int}")]
+        public async Task< ActionResult<Anuncio>> Get(int id)
         {
-            var anuncio = await context.Anuncios.Where(x => x.Tipo == tipo ). FirstOrDefaultAsync();
+            var anuncio = await context.Anuncios.Where(x => x.Id == id ). FirstOrDefaultAsync();
             if (anuncio == null)
             {
-                return NotFound($"No existe anuncios del usuario ");
+                return NotFound($"No existe anuncios con ese Id ");
             }
             return anuncio;
         }
@@ -48,6 +48,7 @@ namespace Helper.Server.Controllers.Anuncios
         [HttpPost]
         public async Task< ActionResult<Anuncio>> Post(Anuncio anuncio)
         {
+          
             context.Anuncios.Add(anuncio);
             await context.SaveChangesAsync();
             return anuncio;
@@ -73,7 +74,7 @@ namespace Helper.Server.Controllers.Anuncios
             anuncioAmod.Especie = anuncio.Especie;
             anuncioAmod.FechaAnuncio = anuncio.FechaAnuncio;
             anuncioAmod.FechaSuceso = anuncio.FechaSuceso;
-            anuncioAmod.FotoRuta = anuncio.FotoRuta;
+            anuncioAmod.RutaFoto = anuncio.RutaFoto;
             anuncioAmod.Tamano = anuncio.Tamano;
             anuncioAmod.Tipo = anuncio.Tipo;
             anuncioAmod.UsuarioId = anuncio.UsuarioId;

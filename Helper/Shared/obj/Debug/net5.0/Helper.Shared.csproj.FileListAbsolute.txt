@@ -1,4 +1,6 @@
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\bin\Debug\net5.0\Helper.Shared.deps.json
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\bin\Debug\net5.0\Helper.Shared.runtimeconfig.json
+D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\bin\Debug\net5.0\Helper.Shared.runtimeconfig.dev.json
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\bin\Debug\net5.0\Helper.Shared.dll
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\bin\Debug\net5.0\ref\Helper.Shared.dll
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\bin\Debug\net5.0\Helper.Shared.pdb
@@ -10,6 +12,4 @@ D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\obj\Debug\net5.0\He
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\obj\Debug\net5.0\Helper.Shared.dll
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\obj\Debug\net5.0\ref\Helper.Shared.dll
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\obj\Debug\net5.0\Helper.Shared.pdb
-D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\bin\Debug\net5.0\Helper.Shared.runtimeconfig.json
-D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\bin\Debug\net5.0\Helper.Shared.runtimeconfig.dev.json
 D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Shared\obj\Debug\net5.0\Helper.Shared.genruntimeconfig.cache
