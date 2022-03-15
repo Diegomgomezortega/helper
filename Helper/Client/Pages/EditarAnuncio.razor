@@ -1,7 +1,96 @@
-﻿@page "/editar"
-<h3 class="text-center">Editar</h3>
+﻿@page "/editar/{anuncioId:int}"
+@*Se inyecta el navigation para poder navegar de paginas en pagina*@
+@inject NavigationManager navigationManager
+@*Se inyecta el http para tener acceso a los servicios de HTTP(tanto get,post,put,delete)*@
+@inject IHttpService http
+
+@if (anuncio!=null)
+{
+    <FormAnuncio nuevo="anuncio" tituloAnuncio="Editar" textobtn1="Confirmar" textobtn2="Volver" onValidSubmit="GrabarEditar" onCancel="Cancelar">
+
+    </FormAnuncio>
+
+}
+
+
+
 
 
 @code {
+    string colorHeader;
+    private IList<string> ImageDateUrls = new List<string>();
+    private Anuncio anuncio;
+    [Parameter] public int anuncioId { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        await TraerAnuncio();
+        ImagenPrevia(anuncio);
+    }
+    private async Task TraerAnuncio()
+    {
+        var respuestaHttp = await http.Get<Anuncio>($"api/publicaciones/{anuncioId}");
+        if (!respuestaHttp.Error)
+        {
+            anuncio = respuestaHttp.Respuesta;
+
+        }
+        if (respuestaHttp.Error)
+        {
+            var body = await respuestaHttp.GetBody();//Sitenemos un error, se va a mostrar
+        }
+
+    }
+    private void ImagenPrevia(Anuncio item)
+    {
+        //int tipo1 = item.Tipo;
+        TipoPublicacion(item);
+        var format = "image/jpg";
+        var imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(item.Foto)}";
+        item.RutaFoto = imageDataUrl;
+
+    }
+    private void TipoPublicacion(Anuncio tipo)
+    {
+        switch (tipo.Tipo)
+        {
+            case 1:
+                colorHeader = "#ff9494";
+                tipo.Estado = "Perdido";
+                break;
+            case 2:
+                colorHeader = "#FFF664";
+                tipo.Estado = "En Adopción";
+                break;
+            case 3:
+                colorHeader = "#7aff33";
+                tipo.Estado = "Encontrado";
+                break;
+                //default:
+                //    colorHeader = "#ff9494";
+                //    break;
+        }
+
+
+    }
+    private async Task GrabarEditar()
+    {
+        anuncio.FechaAnuncio = DateTime.Now;
+        anuncio.UsuarioId = 4;//momentaneo hasta que pueda tomar el id de cada usuario
+
+        var httpRespuesta = await http.Put<Anuncio>($"api/publicaciones/{anuncio.Id}", anuncio);
+        if (httpRespuesta.Error)
+        {
+            var body = await httpRespuesta.GetBody();//Sitenemos un error, se va a mostrar
+        }
+        navigationManager.NavigateTo("/anuncios"); //Luego va a los anuncios
+
+    }
+    private void Cancelar()
+    {
+        navigationManager.NavigateTo("/anuncios");
+    }
 
 }

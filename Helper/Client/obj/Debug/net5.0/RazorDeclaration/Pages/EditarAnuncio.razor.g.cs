@@ -110,7 +110,7 @@ using Helper.Client.Helpers;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/editar")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/editar/{anuncioId:int}")]
     public partial class EditarAnuncio : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -118,6 +118,91 @@ using Helper.Client.Helpers;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 19 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\EditarAnuncio.razor"
+       
+    string colorHeader;
+    private IList<string> ImageDateUrls = new List<string>();
+    private Anuncio anuncio;
+    [Parameter] public int anuncioId { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        await TraerAnuncio();
+        ImagenPrevia(anuncio);
+    }
+    private async Task TraerAnuncio()
+    {
+        var respuestaHttp = await http.Get<Anuncio>($"api/publicaciones/{anuncioId}");
+        if (!respuestaHttp.Error)
+        {
+            anuncio = respuestaHttp.Respuesta;
+
+        }
+        if (respuestaHttp.Error)
+        {
+            var body = await respuestaHttp.GetBody();//Sitenemos un error, se va a mostrar
+        }
+
+    }
+    private void ImagenPrevia(Anuncio item)
+    {
+        //int tipo1 = item.Tipo;
+        TipoPublicacion(item);
+        var format = "image/jpg";
+        var imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(item.Foto)}";
+        item.RutaFoto = imageDataUrl;
+
+    }
+    private void TipoPublicacion(Anuncio tipo)
+    {
+        switch (tipo.Tipo)
+        {
+            case 1:
+                colorHeader = "#ff9494";
+                tipo.Estado = "Perdido";
+                break;
+            case 2:
+                colorHeader = "#FFF664";
+                tipo.Estado = "En Adopción";
+                break;
+            case 3:
+                colorHeader = "#7aff33";
+                tipo.Estado = "Encontrado";
+                break;
+                //default:
+                //    colorHeader = "#ff9494";
+                //    break;
+        }
+
+
+    }
+    private async Task GrabarEditar()
+    {
+        anuncio.FechaAnuncio = DateTime.Now;
+        anuncio.UsuarioId = 4;//momentaneo hasta que pueda tomar el id de cada usuario
+
+        var httpRespuesta = await http.Put<Anuncio>($"api/publicaciones/{anuncio.Id}", anuncio);
+        if (httpRespuesta.Error)
+        {
+            var body = await httpRespuesta.GetBody();//Sitenemos un error, se va a mostrar
+        }
+        navigationManager.NavigateTo("/anuncios"); //Luego va a los anuncios
+
+    }
+    private void Cancelar()
+    {
+        navigationManager.NavigateTo("/anuncios");
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpService http { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

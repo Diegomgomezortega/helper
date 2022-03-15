@@ -118,7 +118,7 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 89 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\FormAnuncio.razor"
+#line 100 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\FormAnuncio.razor"
        
     [Parameter] public Anuncio nuevo { get; set; }
     [Parameter] public EventCallback onValidSubmit { get; set; }
@@ -126,12 +126,15 @@ using Helper.Client.Helpers;
     [Parameter] public EventCallback onChange { get; set; }
     [Parameter] public string textobtn1 { get; set; }
     [Parameter] public string textobtn2 { get; set; }
+    [Parameter] public string tituloAnuncio { get; set; }
     byte[] image;
+
     private string Estado;
     private IList<string> ImageDateUrls = new List<string>();
     private async Task OnInputFileChange(InputFileChangeEventArgs e)
     {
         ImageDateUrls.Clear();
+        nuevo.Foto = null;
         var maxAllowedFile = 1;
         var format = "image/jpg";
         foreach (var imageFile in e.GetMultipleFiles(maxAllowedFile))

@@ -4,23 +4,34 @@
         <div class="col-sm-4">
             <div class="card" style="width: 28rem; background-color: #FFEC84">
                 <div class="card-header">
-                    <h2 class="text-center">Nuevo Anuncio</h2>
+                    <h2 class="text-center">@tituloAnuncio</h2>
                 </div>
-                @if (ImageDateUrls.Count > 0)
+                @if (nuevo.Foto != null && ImageDateUrls.Count==0)
                 {
-                    <div class="card-body">
-                        @foreach (var image in ImageDateUrls)
-                        {
-                            <img src="@image" class="card-img-top" alt="anuncio1">
-
-                        }
-
-                    </div>
+                        <img src="@nuevo.RutaFoto" class="card-img-top" alt="anuncio1">
                 }
                 else
                 {
-                    <img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">
+                    @if (ImageDateUrls.Count > 0)
+                    {
+                        <div class="card-body">
+                            @foreach (var image in ImageDateUrls)
+                            {
+                                <img src="@image" class="card-img-top" alt="anuncio1">
+
+                            }
+
+                        </div>
+                    }else
+                    
+                    {
+                        <img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">
+                    }
+
                 }
+
+
+
 
 
                 <div class="card-body">
@@ -48,7 +59,7 @@
                     <br />
                     <br />
                     <label> Descripción:</label>
-                    <InputTextArea class="form-control" placeholder="Describe a tu amiga/o según las características que lo hacen especial" rows="3" @bind-Value="nuevo.Descripcion"></InputTextArea>
+                    <InputTextArea  class="form-control" placeholder="Describe a tu amiga/o según las características que lo hacen especial" rows="3" @bind-Value="nuevo.Descripcion"></InputTextArea>
                     <ValidationMessage For="@(() => nuevo.Descripcion)" />
 
 
@@ -93,12 +104,15 @@
     [Parameter] public EventCallback onChange { get; set; }
     [Parameter] public string textobtn1 { get; set; }
     [Parameter] public string textobtn2 { get; set; }
+    [Parameter] public string tituloAnuncio { get; set; }
     byte[] image;
+
     private string Estado;
     private IList<string> ImageDateUrls = new List<string>();
     private async Task OnInputFileChange(InputFileChangeEventArgs e)
     {
         ImageDateUrls.Clear();
+        nuevo.Foto = null;
         var maxAllowedFile = 1;
         var format = "image/jpg";
         foreach (var imageFile in e.GetMultipleFiles(maxAllowedFile))
