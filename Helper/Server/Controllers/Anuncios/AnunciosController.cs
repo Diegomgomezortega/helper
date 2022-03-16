@@ -41,10 +41,6 @@ namespace Helper.Server.Controllers.Anuncios
             
 
         }
-            
-    
-
-
         [HttpPost]
         public async Task< ActionResult<Anuncio>> Post(Anuncio anuncio)
         {

@@ -12,11 +12,12 @@ namespace Helper.Client.Servicios
     //es lo que nos permite recibir lo que viene de la wepApi serializado, pero tengo que deserializarlo para que el Client pueda leerlo correctamente
     {
         private readonly HttpClient http;
-
+#region Constructor
         public HttpService(HttpClient http)
         {
             this.http = http;
         }
+        #endregion
 
         //Por cada metodo, tengo que extrar una interfaz, esto para que podamos tener acceso
         //desde la vista del componente
@@ -88,6 +89,12 @@ namespace Helper.Client.Servicios
                 throw;
             }
 
+        }
+
+        public async Task<HttpRespuesta<object>> Delete(string url)
+        {
+            var respuestaHTTP = await http.DeleteAsync(url);
+            return new HttpRespuesta<object>(null, !respuestaHTTP.IsSuccessStatusCode, respuestaHTTP);
         }
 
         //Metodo para deserializar la respuesta traida, y poder manejar los datos

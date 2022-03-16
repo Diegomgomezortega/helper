@@ -8,7 +8,7 @@ namespace Helper.Client.Servicios
 {
     public class HttpRespuesta<T>
     {
-        #region Cramos propiedades de la Clase
+        #region Creamos propiedades de la Clase
         public T Respuesta { get; }
         public bool Error { get; }
         
@@ -30,7 +30,7 @@ namespace Helper.Client.Servicios
         //Metodo para trar el cuerpo del mensaje
         public async Task <string> GetBody()
         {
-            var resp = await httpResponseMessage.Content.ReadAsStringAsync();//Al contenido lo convierto en strin para pode enterarme lo que trar
+            var resp = await httpResponseMessage.Content.ReadAsStringAsync();//Al contenido lo convierto en string para pode enterarme lo que trae
             return resp;
         }
 
