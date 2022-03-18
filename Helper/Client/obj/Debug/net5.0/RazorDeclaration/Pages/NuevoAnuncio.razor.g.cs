@@ -119,11 +119,11 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 15 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
+#line 18 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
        
-    //public string txtbtn1 = "Guardar Anuncio";
-    //public string txtbtn2 = "Cancelar";
+        
     public string Tamano;
+    bool mostrarNombre;
 
 
     private Anuncio anuncio = new Anuncio();
@@ -147,17 +147,39 @@ using Helper.Client.Helpers;
         navigationManager.NavigateTo("/anuncios");
 
     }
-    private void CargarFecha()
-    {
-        //hoy = DateTime.Now.ToShortDateString();
 
-    }
     private void SelectTamano()
     {
 
 
     }
+    private void TipoPublicacion()
+    {
+        switch (anuncio.Tipo)
+        {
+            case 1:
+                //colorHeader = "#ff9494";
+                anuncio.Estado = "Perdido";
+                mostrarNombre = true;
 
+                break;
+            case 2:
+                //colorHeader = "#FFF664";
+                anuncio.Estado = "En Adopción";
+                mostrarNombre = true;
+
+                break;
+            case 3:
+                //colorHeader = "#7aff33";
+                anuncio.Estado = "Encontrado";
+                mostrarNombre = false;
+
+                break;
+                //default:
+                //    colorHeader = "#ff9494";
+                //    break;
+        }
+    }
 
 #line default
 #line hidden

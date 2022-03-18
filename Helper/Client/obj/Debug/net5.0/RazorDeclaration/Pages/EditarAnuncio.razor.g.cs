@@ -119,11 +119,12 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 19 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\EditarAnuncio.razor"
+#line 22 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\EditarAnuncio.razor"
        
     string colorHeader;
     private IList<string> ImageDateUrls = new List<string>();
     private Anuncio anuncio;
+    bool mostrarNombre;
     [Parameter] public int anuncioId { get; set; }
 
 
@@ -150,27 +151,33 @@ using Helper.Client.Helpers;
     private void ImagenPrevia(Anuncio item)
     {
         //int tipo1 = item.Tipo;
-        TipoPublicacion(item);
+        TipoPublicacion();
         var format = "image/jpg";
         var imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(item.Foto)}";
         item.RutaFoto = imageDataUrl;
 
     }
-    private void TipoPublicacion(Anuncio tipo)
+    private void TipoPublicacion()
     {
-        switch (tipo.Tipo)
+        switch (anuncio.Tipo)
         {
             case 1:
                 colorHeader = "#ff9494";
-                tipo.Estado = "Perdido";
+                anuncio.Estado = "Perdido";
+                mostrarNombre = true;
+
                 break;
             case 2:
                 colorHeader = "#FFF664";
-                tipo.Estado = "En Adopción";
+                anuncio.Estado = "En Adopción";
+                mostrarNombre = true;
+
                 break;
             case 3:
                 colorHeader = "#7aff33";
-                tipo.Estado = "Encontrado";
+                anuncio.Estado = "Encontrado";
+                mostrarNombre = false;
+
                 break;
                 //default:
                 //    colorHeader = "#ff9494";

@@ -118,16 +118,24 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 100 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\FormAnuncio.razor"
+#line 114 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\FormAnuncio.razor"
        
     [Parameter] public Anuncio nuevo { get; set; }
     [Parameter] public EventCallback onValidSubmit { get; set; }
     [Parameter] public EventCallback onCancel { get; set; }
     [Parameter] public EventCallback onChange { get; set; }
+    //[Parameter] public EventCallback TipoPublicacion { get; set; }
     [Parameter] public string textobtn1 { get; set; }
     [Parameter] public string textobtn2 { get; set; }
     [Parameter] public string tituloAnuncio { get; set; }
+    public bool nombre=true;
+    public string tipo;
     byte[] image;
+    DateTime hoy = DateTime.Today;
+    string texto;
+
+
+
 
     private string Estado;
     private IList<string> ImageDateUrls = new List<string>();
@@ -153,23 +161,32 @@ using Helper.Client.Helpers;
 
     }
 
-    private void TipoPublicacion(int tipo)
+    private void TipoPublicacion(string n)
     {
-        switch (tipo)
+        switch (n)
         {
-            case 1:
-                nuevo.Estado = "Perdido";
+            case "Perdido":
+
+                nuevo.Estado = n;
+                nuevo.Tipo = 1;
+                nombre = true;
                 break;
-            case 2:
-                nuevo.Estado = "En Adopción";
+            case "En Adopción":
+                nuevo.Estado = n;
+                nuevo.Tipo = 2;
+                nombre = true;
                 break;
-            case 3:
-                nuevo.Estado = "Encontrado";
+
+            case "Encontrado":
+                nuevo.Estado = n;
+                nuevo.Tipo = 3;
+                nombre = false;
                 break;
                 //default:
                 //    colorHeader = "#ff9494";
                 //    break;
         }
+        tipo = nuevo.Estado;
 
 
     }

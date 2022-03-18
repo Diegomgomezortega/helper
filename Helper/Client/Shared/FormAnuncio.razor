@@ -6,9 +6,9 @@
                 <div class="card-header">
                     <h2 class="text-center">@tituloAnuncio</h2>
                 </div>
-                @if (nuevo.Foto != null && ImageDateUrls.Count==0)
+                @if (nuevo.Foto != null && ImageDateUrls.Count == 0)
                 {
-                        <img src="@nuevo.RutaFoto" class="card-img-top" alt="anuncio1">
+                    <img src="@nuevo.RutaFoto" class="card-img-top" alt="anuncio1">
                 }
                 else
                 {
@@ -22,17 +22,13 @@
                             }
 
                         </div>
-                    }else
-                    
+                    }
+                    else
+
                     {
                         <img src="/image/mascota2.jpg" class="card-img-top" alt="anuncio1">
                     }
-
                 }
-
-
-
-
 
                 <div class="card-body">
 
@@ -41,32 +37,36 @@
                     <InputText class="form-control" placeholder="Especie" @bind-Value="@nuevo.Especie" />
                     <ValidationMessage For="@(() => nuevo.Especie)" />
                     <br />
-
-
-                </div>
+                                </div>
                 <div class="card-body">
-                    <InputText class="form-control" placeholder="Nombre" @bind-Value="@nuevo.Nombre" />
-                    <ValidationMessage For="@(() => nuevo.Nombre)" />
-
                     <label> Estado del amiga/o:</label>
-                    <InputSelect @bind-Value="nuevo.Tipo" @onchange="()=>TipoPublicacion(nuevo.Tipo)">
-                        <option value="1">Perdido</option>
-                        <option value="2">En adopción</option>
-                        <option value="3">Encontrado</option>
+                    <InputSelect ValueChanged="@((string value)=>TipoPublicacion(value))" ValueExpression="@(()=>tipo)" Value="tipo" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option value="Perdido">Perdido</option>
+                        <option value="En Adopción">En adopción</option>
+                        <option value="Encontrado">Encontrado</option>
                     </InputSelect>
-                    <ValidationMessage For="@(() => nuevo.Tipo)" />
-
-                    <br />
-                    <br />
-                    <label> Descripción:</label>
-                    <InputTextArea  class="form-control" placeholder="Describe a tu amiga/o según las características que lo hacen especial" rows="3" @bind-Value="nuevo.Descripcion"></InputTextArea>
-                    <ValidationMessage For="@(() => nuevo.Descripcion)" />
-
-
+                    @*<ValidationMessage For="@(() => nuevo.Tipo)" />*@
                 </div>
-                <ul class="list-group list-group-flush">
+                
+
+                <div class="card-body">
+                    @if (nombre)
+                    {
+                        <InputText class="form-control" placeholder="Nombre" @bind-Value="@nuevo.Nombre" />
+                        <ValidationMessage For="@(() => nuevo.Nombre)" />
+                        <br />
+                        <br />
+                    }
+
+                    <label> Descripción:</label>
+                    <br />
+                    <InputTextArea class="form-control" placeholder="Describe a tu amiga/o según las características que lo hacen especial" rows="3" @bind-Value="nuevo.Descripcion"></InputTextArea>
+                    <ValidationMessage For="@(() => nuevo.Descripcion)" />
+                </div>
+                <ul class="card-body">
                     <left>
                         <label>Tamaño del amiga/o:</label>
+                        <br />
                         <InputSelect @bind-Value="nuevo.Tamano" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                             <option value="Pequeño">Chico (1 a 5kg)</option>
                             <option value="Mediano">Mediano (6 a 10kg)</option>
@@ -76,7 +76,21 @@
 
                         <ValidationMessage For="@(() => nuevo.Tamano)" />
                     </left>
-                    <InputDate class="form-control" placeholder="Fecha" @bind-Value="@nuevo.FechaSuceso" />
+                    @if (nuevo.FechaSuceso != hoy)
+                    {
+                        <InputDate class="form-control" placeholder="Fecha" @bind-Value="@nuevo.FechaSuceso" />
+                        <ValidationMessage For="@(() => nuevo.FechaSuceso)" />
+
+                        <br />
+                    }
+                    else
+                    {
+                        <InputDate class="form-control" placeholder="Fecha" @bind-Value="@hoy" />
+                        <ValidationMessage For="@(() => nuevo.FechaSuceso)" />
+                        <br />
+
+                    }
+                    <InputDate class="form-control" placeholder="Fecha" @bind-Value="@hoy" />
                     <ValidationMessage For="@(() => nuevo.FechaSuceso)" />
                     <br />
                     <InputText class="form-control" placeholder="Color Dominante" @bind-Value="@nuevo.ColorRGB1" />
@@ -102,10 +116,18 @@
     [Parameter] public EventCallback onValidSubmit { get; set; }
     [Parameter] public EventCallback onCancel { get; set; }
     [Parameter] public EventCallback onChange { get; set; }
+    //[Parameter] public EventCallback TipoPublicacion { get; set; }
     [Parameter] public string textobtn1 { get; set; }
     [Parameter] public string textobtn2 { get; set; }
     [Parameter] public string tituloAnuncio { get; set; }
+    public bool nombre=true;
+    public string tipo;
     byte[] image;
+    DateTime hoy = DateTime.Today;
+    string texto;
+
+
+
 
     private string Estado;
     private IList<string> ImageDateUrls = new List<string>();
@@ -131,23 +153,32 @@
 
     }
 
-    private void TipoPublicacion(int tipo)
+    private void TipoPublicacion(string n)
     {
-        switch (tipo)
+        switch (n)
         {
-            case 1:
-                nuevo.Estado = "Perdido";
+            case "Perdido":
+
+                nuevo.Estado = n;
+                nuevo.Tipo = 1;
+                nombre = true;
                 break;
-            case 2:
-                nuevo.Estado = "En Adopción";
+            case "En Adopción":
+                nuevo.Estado = n;
+                nuevo.Tipo = 2;
+                nombre = true;
                 break;
-            case 3:
-                nuevo.Estado = "Encontrado";
+
+            case "Encontrado":
+                nuevo.Estado = n;
+                nuevo.Tipo = 3;
+                nombre = false;
                 break;
                 //default:
                 //    colorHeader = "#ff9494";
                 //    break;
         }
+        tipo = nuevo.Estado;
 
 
     }
