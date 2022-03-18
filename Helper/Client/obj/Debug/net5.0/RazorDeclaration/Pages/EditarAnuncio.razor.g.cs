@@ -119,7 +119,7 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 22 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\EditarAnuncio.razor"
+#line 46 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\EditarAnuncio.razor"
        
     string colorHeader;
     private IList<string> ImageDateUrls = new List<string>();
@@ -150,7 +150,7 @@ using Helper.Client.Helpers;
     }
     private void ImagenPrevia(Anuncio item)
     {
-        //int tipo1 = item.Tipo;
+
         TipoPublicacion();
         var format = "image/jpg";
         var imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(item.Foto)}";
@@ -203,6 +203,17 @@ using Helper.Client.Helpers;
     {
         navigationManager.NavigateTo("/anuncios");
     }
+    private async Task Eliminar()
+    {
+        var httpRespuesta = await http.Delete($"api/publicaciones/{anuncio.Id}");
+        if (httpRespuesta.Error)
+        {
+            var body = await httpRespuesta.GetBody();//Sitenemos un error, se va a mostrar
+        }
+        navigationManager.NavigateTo("/anuncios"); //Luego va a los anuncios
+
+    }
+
 
 
 #line default

@@ -119,13 +119,12 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 18 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
+#line 19 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
        
-        
+
     public string Tamano;
     bool mostrarNombre;
-
-
+    DateTime hoy = DateTime.Today;
     private Anuncio anuncio = new Anuncio();
 
 

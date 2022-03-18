@@ -118,25 +118,22 @@ using Helper.Client.Helpers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 114 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\FormAnuncio.razor"
+#line 126 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Shared\FormAnuncio.razor"
        
     [Parameter] public Anuncio nuevo { get; set; }
     [Parameter] public EventCallback onValidSubmit { get; set; }
     [Parameter] public EventCallback onCancel { get; set; }
     [Parameter] public EventCallback onChange { get; set; }
-    //[Parameter] public EventCallback TipoPublicacion { get; set; }
     [Parameter] public string textobtn1 { get; set; }
     [Parameter] public string textobtn2 { get; set; }
     [Parameter] public string tituloAnuncio { get; set; }
-    public bool nombre=true;
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public DateTime fecha { get; set; }
+    public bool nombre = true;
     public string tipo;
     byte[] image;
-    DateTime hoy = DateTime.Today;
+    
     string texto;
-
-
-
-
     private string Estado;
     private IList<string> ImageDateUrls = new List<string>();
     private async Task OnInputFileChange(InputFileChangeEventArgs e)
@@ -160,7 +157,6 @@ using Helper.Client.Helpers;
         }
 
     }
-
     private void TipoPublicacion(string n)
     {
         switch (n)
@@ -190,12 +186,6 @@ using Helper.Client.Helpers;
 
 
     }
-
-
-
-
-
-
 
 
 

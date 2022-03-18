@@ -11,16 +11,16 @@
 <FormAnuncio onValidSubmit="GrabarNuevo"
              tituloAnuncio="Nuevo Anuncio" nuevo="anuncio"
              onCancel="Cancelar" textobtn1="Guardar Anuncio"
-             textobtn2="Cancelar" onChange="SelectTamano">
+             textobtn2="Cancelar" onChange="SelectTamano"
+             fecha="hoy">
 
 </FormAnuncio>
 
 @code {
-        
+
     public string Tamano;
     bool mostrarNombre;
-
-
+    DateTime hoy = DateTime.Today;
     private Anuncio anuncio = new Anuncio();
 
 

@@ -4,19 +4,43 @@
 @*Se inyecta el http para tener acceso a los servicios de HTTP(tanto get,post,put,delete)*@
 @inject IHttpService http
 
-@if (anuncio!=null)
+@if (anuncio != null)
 {
     <FormAnuncio nuevo="anuncio"
                  tituloAnuncio="Editar" textobtn1="Confirmar"
                  textobtn2="Volver" onValidSubmit="GrabarEditar"
-                 onCancel="Cancelar">
-
+                 onCancel="Cancelar"
+                 fecha="anuncio.FechaSuceso">
+        <button type="button"  class="btn btn-danger btn-sm btn-block" data-bs-toggle="modal" data-bs-target="#Confirmacion">Eliminar</button>
     </FormAnuncio>
 
 }
 
+<!-- The Modal -->
+<div class="modal fade" id="Confirmacion">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
 
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Atención</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
 
+            <!-- Modal body -->
+            <div class="modal-body">
+               ¿Desea eliminar la publicación?
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+                <button type="button"  @onclick="Eliminar" class="btn btn-danger " data-bs-dismiss="modal">Confirmar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 
 @code {
@@ -49,7 +73,7 @@
     }
     private void ImagenPrevia(Anuncio item)
     {
-        //int tipo1 = item.Tipo;
+
         TipoPublicacion();
         var format = "image/jpg";
         var imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(item.Foto)}";
@@ -102,5 +126,16 @@
     {
         navigationManager.NavigateTo("/anuncios");
     }
+    private async Task Eliminar()
+    {
+        var httpRespuesta = await http.Delete($"api/publicaciones/{anuncio.Id}");
+        if (httpRespuesta.Error)
+        {
+            var body = await httpRespuesta.GetBody();//Sitenemos un error, se va a mostrar
+        }
+        navigationManager.NavigateTo("/anuncios"); //Luego va a los anuncios
+
+    }
+
 
 }

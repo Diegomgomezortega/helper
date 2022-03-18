@@ -3,9 +3,11 @@
     <center>
         <div class="col-sm-4">
             <div class="card" style="width: 28rem; background-color: #FFEC84">
+                @* Header *@
                 <div class="card-header">
                     <h2 class="text-center">@tituloAnuncio</h2>
                 </div>
+                @* Imagen Previa o Default *@
                 @if (nuevo.Foto != null && ImageDateUrls.Count == 0)
                 {
                     <img src="@nuevo.RutaFoto" class="card-img-top" alt="anuncio1">
@@ -30,78 +32,88 @@
                     }
                 }
 
-                <div class="card-body">
+                @* InputFile y Especie *@
+            <div class="card-body">
 
-                    <InputFile class="form-control" placeholder="Foto" OnChange="OnInputFileChange" />
-                    <br />
-                    <InputText class="form-control" placeholder="Especie" @bind-Value="@nuevo.Especie" />
+                <InputFile class="form-control" placeholder="Foto" OnChange="OnInputFileChange" />
+                <br />
+                <div class="form-floating">
+                    <InputText id="especie" class="form-control" placeholder="Especie" @bind-Value="@nuevo.Especie" />
+                    <label for="especie">Especie</label>
                     <ValidationMessage For="@(() => nuevo.Especie)" />
-                    <br />
-                                </div>
-                <div class="card-body">
-                    <label> Estado del amiga/o:</label>
-                    <InputSelect ValueChanged="@((string value)=>TipoPublicacion(value))" ValueExpression="@(()=>tipo)" Value="tipo" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option value="Perdido">Perdido</option>
-                        <option value="En Adopción">En adopción</option>
-                        <option value="Encontrado">Encontrado</option>
-                    </InputSelect>
-                    @*<ValidationMessage For="@(() => nuevo.Tipo)" />*@
                 </div>
-                
-
+            </div>
+                @* Estado *@
                 <div class="card-body">
-                    @if (nombre)
-                    {
-                        <InputText class="form-control" placeholder="Nombre" @bind-Value="@nuevo.Nombre" />
+                    <div class="form-floating">
+                        <InputSelect id="tipo" ValueChanged="@((string value)=>TipoPublicacion(value))" ValueExpression="@(()=>tipo)" Value="tipo" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option value="Perdido">Perdido</option>
+                            <option value="En Adopción">En adopción</option>
+                            <option value="Encontrado">Encontrado</option>
+                        </InputSelect>
+                        <label for="tipo"> Estado del amiga/o:</label>
+                        @*<ValidationMessage For="@(() => nuevo.Tipo)" />*@
+                    </div>
+                </div>
+
+                @*Nombre y Descripcion*@
+            <div class="card-body">
+                @if (nombre)
+                {
+                    <div class="form-floating">
+                        <InputText class="form-control" id="nombre" placeholder="Nombre" @bind-Value="@nuevo.Nombre" />
+                        <label for="nombre">Nombre</label>
                         <ValidationMessage For="@(() => nuevo.Nombre)" />
                         <br />
                         <br />
-                    }
+                    </div>
 
-                    <label> Descripción:</label>
-                    <br />
-                    <InputTextArea class="form-control" placeholder="Describe a tu amiga/o según las características que lo hacen especial" rows="3" @bind-Value="nuevo.Descripcion"></InputTextArea>
+                }
+                <div class="form-floating">
+                    <InputText class="form-control" id="descripcion" placeholder="Descripcion" @bind-Value="@nuevo.Descripcion" />
+                    <label for="descripcion">Descripción</label>
                     <ValidationMessage For="@(() => nuevo.Descripcion)" />
                 </div>
+                
+            </div>
+                @* Tamaño Fechas y Colores*@
                 <ul class="card-body">
-                    <left>
-                        <label>Tamaño del amiga/o:</label>
-                        <br />
-                        <InputSelect @bind-Value="nuevo.Tamano" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <div class="form-floating">
+                        <InputSelect @bind-Value="nuevo.Tamano" id="tamano" class="form-select form-select-sm" aria-label=".form-select-sm example">
                             <option value="Pequeño">Chico (1 a 5kg)</option>
                             <option value="Mediano">Mediano (6 a 10kg)</option>
                             <option value="Grande">Grande (11 a 15kg)</option>
                             <option value="Enorme">Enorme (16kg o +)</option>
                         </InputSelect>
-
+                        <label for="tamano"> Tamaño</label>
                         <ValidationMessage For="@(() => nuevo.Tamano)" />
-                    </left>
-                    @if (nuevo.FechaSuceso != hoy)
-                    {
-                        <InputDate class="form-control" placeholder="Fecha" @bind-Value="@nuevo.FechaSuceso" />
-                        <ValidationMessage For="@(() => nuevo.FechaSuceso)" />
-
-                        <br />
-                    }
-                    else
-                    {
-                        <InputDate class="form-control" placeholder="Fecha" @bind-Value="@hoy" />
-                        <ValidationMessage For="@(() => nuevo.FechaSuceso)" />
-                        <br />
-
-                    }
-                    <InputDate class="form-control" placeholder="Fecha" @bind-Value="@hoy" />
-                    <ValidationMessage For="@(() => nuevo.FechaSuceso)" />
+                    </div>
                     <br />
-                    <InputText class="form-control" placeholder="Color Dominante" @bind-Value="@nuevo.ColorRGB1" />
-                    <ValidationMessage For="@(() => nuevo.ColorRGB1)" />
-                    <br />
-                    <InputText class="form-control" placeholder="Color Secundario (no es obligatorio)" @bind-Value="@nuevo.ColorRGB2" />
-                    <ValidationMessage For="@(() => nuevo.ColorRGB2)" />
-                </ul>
+                    <div class="form-floating">
+                        <InputDate id="fecha" class="form-control" placeholder="Fecha" @bind-Value="@fecha" />
+                        <ValidationMessage For="@(() => nuevo.FechaSuceso)" />
+                        <label for="fecha"> Fecha</label>
+                        <br />
+                    </div>
+                    <div class="form-floating">
+                        <InputText id="color1" class="form-control" placeholder="Color Dominante" @bind-Value="@nuevo.ColorRGB1" />
+                        <ValidationMessage For="@(() => nuevo.ColorRGB1)" />
+                        <label for="color1">Color Dominante</label>
+                        <br />
+                     </div>
+                    <div class="form-floating">
+                        <InputText id="color2" class="form-control" @bind-Value="@nuevo.ColorRGB2" placeholder="Color Secundario (No es obligatorio)" />
+                        <ValidationMessage For="@(() => nuevo.ColorRGB2)" />
+                        <label for="color2">Color Secundario (No es obligatorio)</label>
+                    </div>
+                        
+                        
+</ul>
+                @*Botones*@
                 <div class="card-body">
                     <button class="btn btn-primary btn-sm btn-block" type="submit">@textobtn1</button>
-                    <button type="button" class="btn btn-success btn-sm btn-block" @onclick="onCancel">@textobtn2</button>
+                    <button class="btn btn-success btn-sm btn-block" @onclick="onCancel">@textobtn2</button>
+                    @ChildContent
                 </div>
             </div>
             <br />
@@ -116,19 +128,16 @@
     [Parameter] public EventCallback onValidSubmit { get; set; }
     [Parameter] public EventCallback onCancel { get; set; }
     [Parameter] public EventCallback onChange { get; set; }
-    //[Parameter] public EventCallback TipoPublicacion { get; set; }
     [Parameter] public string textobtn1 { get; set; }
     [Parameter] public string textobtn2 { get; set; }
     [Parameter] public string tituloAnuncio { get; set; }
-    public bool nombre=true;
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public DateTime fecha { get; set; }
+    public bool nombre = true;
     public string tipo;
     byte[] image;
-    DateTime hoy = DateTime.Today;
+    
     string texto;
-
-
-
-
     private string Estado;
     private IList<string> ImageDateUrls = new List<string>();
     private async Task OnInputFileChange(InputFileChangeEventArgs e)
@@ -152,7 +161,6 @@
         }
 
     }
-
     private void TipoPublicacion(string n)
     {
         switch (n)
@@ -182,12 +190,6 @@
 
 
     }
-
-
-
-
-
-
 
 
 }
