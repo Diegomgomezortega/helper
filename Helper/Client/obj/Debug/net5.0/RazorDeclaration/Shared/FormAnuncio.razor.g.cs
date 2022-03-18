@@ -132,7 +132,7 @@ using Helper.Client.Helpers;
     public bool nombre = true;
     public string tipo;
     byte[] image;
-    
+
     string texto;
     private string Estado;
     private IList<string> ImageDateUrls = new List<string>();
@@ -176,6 +176,7 @@ using Helper.Client.Helpers;
             case "Encontrado":
                 nuevo.Estado = n;
                 nuevo.Tipo = 3;
+                nuevo.Nombre = "Desconocido";
                 nombre = false;
                 break;
                 //default:

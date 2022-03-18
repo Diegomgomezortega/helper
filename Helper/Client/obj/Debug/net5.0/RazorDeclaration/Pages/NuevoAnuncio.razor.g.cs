@@ -122,12 +122,8 @@ using Helper.Client.Helpers;
 #line 19 "D:\Diego\Aplicaciones\BlazorWebAssembly\Helper\Helper\Client\Pages\NuevoAnuncio.razor"
        
 
-    public string Tamano;
-    bool mostrarNombre;
     DateTime hoy = DateTime.Today;
     private Anuncio anuncio = new Anuncio();
-
-
     private async Task GrabarNuevo()
     {
         anuncio.FechaAnuncio = DateTime.Now;
@@ -147,38 +143,6 @@ using Helper.Client.Helpers;
 
     }
 
-    private void SelectTamano()
-    {
-
-
-    }
-    private void TipoPublicacion()
-    {
-        switch (anuncio.Tipo)
-        {
-            case 1:
-                //colorHeader = "#ff9494";
-                anuncio.Estado = "Perdido";
-                mostrarNombre = true;
-
-                break;
-            case 2:
-                //colorHeader = "#FFF664";
-                anuncio.Estado = "En Adopción";
-                mostrarNombre = true;
-
-                break;
-            case 3:
-                //colorHeader = "#7aff33";
-                anuncio.Estado = "Encontrado";
-                mostrarNombre = false;
-
-                break;
-                //default:
-                //    colorHeader = "#ff9494";
-                //    break;
-        }
-    }
 
 #line default
 #line hidden

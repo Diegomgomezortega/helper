@@ -136,7 +136,7 @@
     public bool nombre = true;
     public string tipo;
     byte[] image;
-    
+
     string texto;
     private string Estado;
     private IList<string> ImageDateUrls = new List<string>();
@@ -180,6 +180,7 @@
             case "Encontrado":
                 nuevo.Estado = n;
                 nuevo.Tipo = 3;
+                nuevo.Nombre = "Desconocido";
                 nombre = false;
                 break;
                 //default:
