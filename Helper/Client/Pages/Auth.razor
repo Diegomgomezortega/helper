@@ -1,0 +1,33 @@
+﻿@page "/auth"
+<Login registrar=@nuevo textOnvalid=@textAceptar
+        titulo=@titulo textbtnRegistrar=@btntxtregistrar registrarse=@Registrarse>
+    <a></a>
+</Login>
+
+@code {
+    bool nuevo=false;
+    string textAceptar="Iniciar Sesión";
+    string titulo="Iniciar Sesión";
+    string btntxtregistrar="Registrarse";
+    private void Registrarse()
+    {
+        if (nuevo)
+        {
+            titulo = "Iniciar Sesión";
+            nuevo = false;
+            btntxtregistrar = "Registrarse";
+            textAceptar = "Iniciar Sesión";
+
+        }
+        else
+        {
+            titulo = "Registrarse";
+            nuevo = true;
+            btntxtregistrar = "Iniciar Sesión";
+            textAceptar = "Registrarse";
+
+        }
+
+    }
+
+}
