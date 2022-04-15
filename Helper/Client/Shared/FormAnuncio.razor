@@ -95,17 +95,25 @@
                         <label for="fecha"> Fecha</label>
                         <br />
                     </div>
-                    <div class="form-floating">
-                        <InputText id="color1" class="form-control" placeholder="Color Dominante" @bind-Value="@nuevo.ColorRGB1" />
+                    <div style="display:flex">
+                        <div class="form-floating" style="100%"  >
+                        <input type="color" style="width:40%" id="color-primario" class="form-control" placeholder="Color Dominante"/>
+                        <label for="color-primario">Color Dominante</label>
+                        <input type="color" style="width:40%" id="color-sec" class="form-control" placeholder="Color Secundario"/>
+                        <label for="color-sec">Color Secundario</label>
+                        
+                        @*<InputText id="color1" class="form-control" placeholder="Color Dominante" @bind-Value="@nuevo.ColorRGB1" />
                         <ValidationMessage For="@(() => nuevo.ColorRGB1)" />
                         <label for="color1">Color Dominante</label>
-                        <br />
+                        <br />*@
                      </div>
-                    <div class="form-floating">
+                    </div>
+                    
+                    @*<div class="form-floating">
                         <InputText id="color2" class="form-control" @bind-Value="@nuevo.ColorRGB2" placeholder="Color Secundario (No es obligatorio)" />
                         <ValidationMessage For="@(() => nuevo.ColorRGB2)" />
                         <label for="color2">Color Secundario (No es obligatorio)</label>
-                    </div>
+                    </div>*@
                         
                         
 </ul>
@@ -149,7 +157,7 @@
         foreach (var imageFile in e.GetMultipleFiles(maxAllowedFile))
         {
 
-            var resizedFile = await imageFile.RequestImageFileAsync(format, 200, 200);
+            var resizedFile = await imageFile.RequestImageFileAsync(format, 600, 600);
 
             var buffer = new byte[resizedFile.Size];
             await resizedFile.OpenReadStream().ReadAsync(buffer);
